@@ -6,11 +6,11 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:15:12 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/21 12:25:46 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/21 12:42:57 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../minishell.h"
+#include "../../includes/minishell.h"
 
 int	apply_heredoc(char *heredoc, int *in)
 {

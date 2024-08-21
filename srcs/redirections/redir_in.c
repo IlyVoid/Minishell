@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   append.c                                           :+:      :+:    :+:   */
+/*   redir_in.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/21 11:40:35 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/21 12:43:12 by quvan-de         ###   ########.fr       */
+/*   Created: 2024/08/21 12:37:43 by quvan-de          #+#    #+#             */
+/*   Updated: 2024/08/21 12:42:31 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-/* 0644 is a way of setting file perms, part of open() */
-
-int	apply_append(char *redir, t_minishell *minish, int *out)
+int	apply_redir_in(char *redir, t_minishell *minish, int *in)
 {
 	int	status;
 	int	fd;
 
-	if (*out != -1)
-		close(*out);
+	if (*in != -1)
+		close(*in);
 	while (ft_isspace(*redir))
 		redir++;
 	status = check_redir(&redir, minish);
 	if (status != 0)
 		return (status);
-	fd = open(redir, O_CREAT | O_WRONLY | O_APPEND, 0644);
+	fd = open(redir, O_RDONLY);
 	if (fd != -1)
-		*out = fd;
+		*in = fd;
 	else
 	{
 		status = GENERIC_ERROR;
