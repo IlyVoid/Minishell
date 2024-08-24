@@ -36,10 +36,12 @@ WHITE = \033[0;97m
 #Sources
 
 FTIS_DIR	=	checkers/
-FTIS		=	ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint
+FTIS		=	ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint ft_arrlen \
+				ft_isspace
 
 FTMEM_DIR	=	mem/
-FTMEM		=	ft_bzero ft_calloc ft_memchr ft_memcmp ft_memmove ft_memset
+FTMEM		=	ft_bzero ft_calloc ft_memchr ft_memcmp ft_memmove ft_memset \
+				ft_free_2d_array
 
 FTPUT_DIR	=	fd/
 FTPUT		=	ft_putchar_fd ft_putendl_fd ft_putnbr_fd ft_putstr_fd

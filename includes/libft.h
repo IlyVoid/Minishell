@@ -33,6 +33,7 @@ int					ft_isdigit(int i);
 int					ft_isascii(int i);
 int					ft_isprint(int i);
 t_bool				ft_isspace(char c);
+size_t              ft_arrlen(void **arr);
 int					ft_toupper(int i);
 int					ft_tolower(int i);
 void				*ft_memset(void *b, int c, size_t len);
@@ -74,5 +75,8 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
+
+
+void                ft_free_2d_array(void *ptr);
 
 #endif
