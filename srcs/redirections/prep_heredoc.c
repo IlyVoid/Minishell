@@ -70,3 +70,53 @@ static void heredoc(char *limiter, int fd, t_minishell *minish)
 		}
 	}
 }
+
+void    remove_hd_duplicates(char ***redirs, char *hd_name, char hd_counter)
+{
+	int     i;
+	int     j;
+	char    **redr;
+
+	redr = *redirs;
+	i = 0;
+	if (hd_counter == 0)
+		free(hd_name);
+	while (hd_counter > 1)
+	{
+		if (redr[i] == hd_name)
+		{
+			j = i;
+			while (redr[j] != NULL_TERM)
+			{
+				redr[j] = redr[j + 1];
+				j++;
+			}
+			hd_counter--;
+			continue;
+		}
+		i++;
+	}
+}
+
+
+// yet to make exp_dollar_sign() (adaptations possible, deffo gotta look for a perm name)
+
+static void handle_heredoc_line(int fd, char *line, t_minishell *minish, char *limiter)
+{
+	int status;
+
+	status = exp_dollar_sign(&line, minish->env, minish->exit_status);
+	if (status == SUCCESS)
+	{
+		ft_putendl_fd(line, fd);
+		free(line);
+	}
+	else
+	{
+		ft_putstr_fd("\033[0;31md-sh: \033[0;0m", STDERR_FILENO);
+		ft_putstr_fd(limiter, STDERR_FILENO);
+		ft_putendl_fd("; malloc() error occured", STDERR_FILENO);
+		close(fd);
+		exit(status);
+	}
+}

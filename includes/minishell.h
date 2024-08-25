@@ -27,7 +27,17 @@
 # include "./defines.h"
 
 typedef struct	s_minishell
-{}
+{
+	char            **env;
+	char            *pwd;
+	char            *oldpwd;
+	t_list          *history;
+	char            *history_path;
+	int             exit_status;
+	t_node          *root;
+	t_bool          is_parent;
+	t_bool          is_oldpwd_unset;
+}                   t_minishell;
 
 /* REDIRECTS */
 int	apply_redirects(char **redirs, t_minishell *minish);
