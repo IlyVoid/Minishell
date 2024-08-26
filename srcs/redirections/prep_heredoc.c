@@ -8,7 +8,7 @@ int prepare_heredoc(char **limiter, char *hd_name, t_minishell *minish)
 {
 	int     status;
 	pid_t   pid;
-	innt    fd;
+	int    fd;
 
 	remove_space_and_quotes_hd(*limiter + 2);
 	pid = fork();

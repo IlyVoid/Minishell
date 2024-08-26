@@ -24,7 +24,7 @@ int prepare_redirects(char *redirects_line, int *hd_num, char ***redirs,
 	if (status != SUCCESS)
 	{
 		ft_free_2d_array(*redirs);
-		remove_hd_files(hd_num);
+		rm_hd_files(hd_num);
 	}
 	if (status == SIGINT + 128)
 		status = 1;
@@ -55,7 +55,7 @@ static int prepare_heredocs(char ***redirs, int *hd_num, t_minishell *minish)
 	}
 	if (hd_counter > 0)
 		(*hd_num)++;
-	remove_hd_dups(redirs, hd_nanme, hd_counter);
+	remove_hd_dups(redirs, hd_name, hd_counter);
 	return (status);
 }
 

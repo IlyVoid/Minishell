@@ -14,7 +14,7 @@ int check_redir(char **redir, t_minishell *minish)
 	{
 		status = 1;
 		print_err_msg(*redir, ": No valid redirect\n");
-		ft_free_2d_arraay(redr);
+		ft_free_2d_array(redr);
 	}
 	else
 	{
