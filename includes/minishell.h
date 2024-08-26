@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/26 11:24:14 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/26 16:44:37 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <sys/ioctl.h>
 # include <termios.h>
 # include <fcntl.h>
+# include <unistd.h>
 # include "./libft.h"
 # include "./structs.h"
 # include "./defines.h"
