@@ -25,6 +25,10 @@ enum    e_characters
 	DASH = 45,
 	DOT = 46,
 	SLASH = 47,
+	O_ROUND = 40,
+	C_ROUND = 41,
+	REDIR_L = 60,
+	REDIR_R,
 };
 
 enum	e_signals_echo

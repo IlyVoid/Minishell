@@ -61,7 +61,7 @@ void	perror_err_msg(char *cmd, char *arg)
 	free(arg);
 }
 
-void	arr_err_msg(char *cmd, char *arg, char *msg)
+void	arg_err_msg(char *cmd, char *arg, char *msg)
 {
 	cmd = ft_strjoin("\033[0;31md-sh: \033[0;0m", cmd);
 	if (!cmd)
@@ -78,6 +78,9 @@ void	arr_err_msg(char *cmd, char *arg, char *msg)
 	free(msg);
 }
 
+/* print syntax error in a string by indicating an unexpected token by identifying the type of token and
+ * modifying the null term position of the string */
+
 void	syntax_err_msg(char *str)
 {
 	int	i;
@@ -88,5 +91,15 @@ void	syntax_err_msg(char *str)
 	else if (ft_strncmp("||", str, 2) == 0 || ft_strncmp("&&", str, 2) == 0
 		|| ft_strncmp(">>", str, 2) == 0 || ft_strncmp("<<", str, 2) == 0)
 		i = 2;
-	else if (*str == PIPE || *str == )
+	else if (*str == PIPE || *str == O_ROUND || *str == C_ROUND
+		|| *str == REDIR_L || *str == REDIR_R || *str == AND)
+		i = 1;
+	else if (ft_isalnum(*str) == 1 || *str == S_QUOTE || *str == D_QUOTE)
+		while (ft_isalnum(*str) == 1 || *str == S_QUOTE || *str == D_QUOTE)
+			i++;
+	if (i != 0)
+		str[i] = NULL_TERM;
+	ft_putstr_fd("\033[0;31md-sh: \033[0;0msyntax error " "unexpected roken '", STDERR_FILENO);
+	ft_putstr_fd(str, STDERR_FILENO);
+	ft_putendl_fd("'", STDERR_FILENO);
 }

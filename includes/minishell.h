@@ -42,18 +42,22 @@ typedef struct	s_minishell
 }                   t_minishell;
 
 /* REDIRECTS */
-int	apply_redirects(char **redirs, t_minishell *minish);
-int	check_redir(char **reedir, t_minishell *minish);
-int	apply_heredoc(char *limiter, int *in);
-int	apply_redir_in(char *str, t_minishell *minish, int *in);
-int	apply_append(char *redir, t_minishell *minish, int *out);
-int	apply_redir_out(char *redir, t_minishell *minish, int *out);
-int	prepare_redirects(char *redirects_line, int *hd_num,
-					  char ***redirs, t_minishell *minish);
-int	prepare_heredoc(char **limiter, char *hd_name, t_minishell *minish);
+int	    apply_redirects(char **redirs, t_minishell *minish);
+int	    check_redir(char **reedir, t_minishell *minish);
+int	    apply_heredoc(char *limiter, int *in);
+int	    apply_redir_in(char *str, t_minishell *minish, int *in);
+int	    apply_append(char *redir, t_minishell *minish, int *out);
+int	    apply_redir_out(char *redir, t_minishell *minish, int *out);
+int	    prepare_redirects(char *redirects_line, int *hd_num,
+					    char ***redirs, t_minishell *minish);
+int	    prepare_heredoc(char **limiter, char *hd_name, t_minishell *minish);
 void	remove_hd_dups(char ***redirs, char *hd_name, char hd_counter);
 
 /* UTILS */
 void	remove_quotes(char *str, int i, int j);
+void    syntax_err_msg(char *str);
+void    print_err_msg(char *cmd, char *msg);
+void    perror_err_msg(char *cmd, char *arg);
+void    arg_err_msg(char *cmd, char *arg, char *msg);
 
 #endif
