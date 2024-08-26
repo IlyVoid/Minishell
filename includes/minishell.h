@@ -59,5 +59,7 @@ void    syntax_err_msg(char *str);
 void    print_err_msg(char *cmd, char *msg);
 void    perror_err_msg(char *cmd, char *arg);
 void    arg_err_msg(char *cmd, char *arg, char *msg);
+void    handle_ctl_d_error(char *msg);
+int     handle_ctl_d(char *prompt);
 
 #endif
