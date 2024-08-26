@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/26 10:43:28 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/26 11:20:33 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,6 @@ int	prepare_redirects(char *redirects_line, int *hd_num,
 int	prepare_heredoc(char **limiter, char *hd_name, t_minishell *minish);
 void	remove_hd_dups(char ***redirs, char *hd_name, char hd_counter);
 
+/* UTILS */
+void	remove_quotes(char *str, int i, int j);
 #endif
