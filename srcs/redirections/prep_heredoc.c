@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 11:15:25 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/26 11:19:09 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/26 13:48:23 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ static void heredoc(char *limiter, int fd, t_minishell *minish)
 		if (!line)
 		{
 			close(fd);
-			ft_printf("\033[1A");
-			ft_printf("\033[2C");
+			printf("\033[1A");
+			printf("\033[2C");
 			exit(0);
 		}
 		isequal = ft_strcmp(limiter, line);
