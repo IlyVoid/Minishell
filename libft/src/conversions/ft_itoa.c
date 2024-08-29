@@ -6,11 +6,11 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 12:45:59 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/07/11 12:46:00 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/29 14:05:45 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "../../../includes/libft.h"
 #include <stdlib.h>
 
 static void	ft_len(int n, size_t *len, int *sign)

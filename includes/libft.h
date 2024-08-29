@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 12:38:10 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/26 13:46:53 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/29 14:11:46 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ typedef struct s_list
 
 typedef enum e_bool
 {
-	true = 1,
-	false = 0
+	BOOL_TRUE = 1,
+	BOOL_FALSE = 0
 }	t_bool;
 
 int					ft_isalnum(int i);
@@ -66,10 +66,10 @@ void				ft_putnbr_fd(int n, int fd);
 void				ft_putendl_fd(char *s, int fd);
 
 t_list				*ft_lstnew(void *content);
-void				ft_lstadd_front(t_list **lst, t_list *new);
+void				ft_lstadd_front(t_list **lst, t_list *new_n);
 int					ft_lstsize(t_list *lst);
 t_list				*ft_lstlast(t_list *lst);
-void				ft_lstadd_back(t_list **lst, t_list *new);
+void				ft_lstadd_back(t_list **lst, t_list *new_n);
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));

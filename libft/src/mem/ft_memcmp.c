@@ -6,11 +6,11 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 12:50:53 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/07/11 12:51:06 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/29 14:07:31 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "../../../includes/libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

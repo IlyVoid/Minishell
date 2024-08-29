@@ -6,11 +6,11 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 12:48:07 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/07/11 12:48:12 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/29 14:06:41 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "../../../includes/libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

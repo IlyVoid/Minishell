@@ -6,11 +6,11 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 12:51:54 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/07/11 12:51:55 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/29 14:08:33 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "../../../includes/libft.h"
 
 char	*ft_strdup(const char *s1)
 {

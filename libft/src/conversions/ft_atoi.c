@@ -6,11 +6,11 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 12:45:48 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/07/11 12:53:35 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/29 14:05:35 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "../../../includes/libft.h"
 
 int	ft_atoi(const char *str)
 {

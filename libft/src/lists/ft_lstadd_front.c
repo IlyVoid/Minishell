@@ -6,16 +6,16 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 12:48:34 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/07/11 12:48:42 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/29 14:01:01 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "../../../includes/libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new_n)
 {
-	if (!(lst && new))
+	if (!(lst && new_n))
 		return ;
-	new->next = *lst;
-	*lst = new;
+	new_n->next = *lst;
+	*lst = new_n;
 }

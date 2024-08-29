@@ -6,11 +6,11 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 12:46:31 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/07/11 12:47:55 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/29 14:06:24 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "../../../includes/libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

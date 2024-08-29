@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_arrlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/29 14:03:07 by quvan-de          #+#    #+#             */
+/*   Updated: 2024/08/29 14:04:34 by quvan-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../../includes/libft.h"
 
 size_t  ft_arrlen(void **arr)
@@ -5,7 +17,7 @@ size_t  ft_arrlen(void **arr)
 	size_t  len;
 
 	len = 0;
-	while (arr[len] !=)
+	while (arr[len] != NULL)
 		len++;
 	return (len);
 }

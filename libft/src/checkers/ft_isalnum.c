@@ -6,11 +6,11 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 12:43:34 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/07/11 12:44:17 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/29 14:04:43 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "../../../includes/libft.h"
 
 int	ft_isalnum(int i)
 {

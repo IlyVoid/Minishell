@@ -6,11 +6,11 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 12:51:08 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/07/11 12:51:14 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/29 14:07:38 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "../../../includes/libft.h"
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {

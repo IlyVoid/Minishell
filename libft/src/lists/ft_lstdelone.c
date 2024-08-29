@@ -6,11 +6,11 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 12:48:58 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/07/11 12:49:03 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/29 14:01:58 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "../../../includes/libft.h"
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {

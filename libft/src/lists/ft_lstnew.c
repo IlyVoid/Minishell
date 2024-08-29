@@ -6,11 +6,11 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 12:49:23 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/07/11 12:49:42 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/29 14:02:33 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../../include/libft.h"
+#include "../../../includes/libft.h"
 #include <stdlib.h>
 
 t_list	*ft_lstnew(void *content)
