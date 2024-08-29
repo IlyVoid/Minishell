@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/26 16:44:37 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/28 09:33:19 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,9 @@ void    perror_err_msg(char *cmd, char *arg);
 void    arg_err_msg(char *cmd, char *arg, char *msg);
 void    handle_ctl_d_error(char *msg);
 int     handle_ctl_d(char *prompt);
+
+/* VALIDATE SYNTAX */
+char	*validate_redirect(char *str, t_bool *status);
+char	*validate_word(char *str, t_bool *status);
 
 #endif

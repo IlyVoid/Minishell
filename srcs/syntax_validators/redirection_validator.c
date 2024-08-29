@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 12:13:49 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/27 14:40:12 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/28 09:31:03 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,13 @@ char	*validate_redirect(char *str, t_bool *status)
 		return (str);
 	if (ft_isspace(*str))
 		str++;
-	next_token = validate_word()
+	next_token = validate_word(str, status);
+	if (next_token == str)
+		*status = false;
+	if (*status == false || *next_token == C_ROUND)
+		return (next_token);
+	while (ft_isspace(*next_token))
+		next_token++;
+	next_token = validate_redirect(next_token, status);
+	return (next_token);
 }

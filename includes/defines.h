@@ -9,6 +9,9 @@ enum    e_exit_status
 	FORK_FAILURE = 400,
 	PIPE_FAILURE = 500,
 	DUP_FAILURE = 600,
+	CMD_PD_FAILURE = 126,
+	CMD_ARG_ERROR,
+	CMD_NF_FAILURE = 127,
 };
 
 enum    e_characters
@@ -31,7 +34,7 @@ enum    e_characters
 	REDIR_R,
 };
 
-enum	e_signals_echo
+enum	e_signals
 {
 	HEREDOC,
 };
