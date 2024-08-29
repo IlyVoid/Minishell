@@ -43,7 +43,7 @@ typedef struct	s_minishell
 
 /* REDIRECTS */
 int	    apply_redirects(char **redirs, t_minishell *minish);
-int	    check_redir(char **reedir, t_minishell *minish);
+int	    check_redir(char **redir, t_minishell *minish);
 int	    apply_heredoc(char *limiter, int *in);
 int	    apply_redir_in(char *str, t_minishell *minish, int *in);
 int	    apply_append(char *redir, t_minishell *minish, int *out);
@@ -53,8 +53,15 @@ int	    prepare_redirects(char *redirects_line, int *hd_num,
 int	    prepare_heredoc(char **limiter, char *hd_name, t_minishell *minish);
 void	remove_hd_dups(char ***redirs, char *hd_name, char hd_counter);
 
+/* TREE TRAVERSAL */
+int		find_cmd(char **cmd, char **penv);
+int 	find_exe(char **cmnd, char **paths);
+int 	is_builtin(char *cmd);
+int		parse_cmd(char *cmd, char ***res, t_minishell *minish);
+
 /* UTILS */
 void	remove_quotes(char *str, int i, int j);
+void	remove_quotes_arr(char **arr, int i);
 void    syntax_err_msg(char *str);
 void    print_err_msg(char *cmd, char *msg);
 void    perror_err_msg(char *cmd, char *arg);
@@ -65,5 +72,6 @@ int     handle_ctl_d(char *prompt);
 /* VALIDATE SYNTAX */
 char	*validate_redirect(char *str, t_bool *status);
 char	*validate_word(char *str, t_bool *status);
+t_bool	string_is_empty(char *str);
 
 #endif

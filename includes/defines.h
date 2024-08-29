@@ -34,6 +34,31 @@ enum    e_characters
 	REDIR_R,
 };
 
+enum	e_builtins
+{
+	NOT_BUILTIN,
+	C_BLANK,
+	C_EMPTY,
+	C_ECHO,
+	C_CD,
+	C_ENV,
+	C_EXPORT,
+	C_PWD,
+	C_UNSET,
+	C_EXIT,
+};
+
+enum	e_builtins_length
+{
+	CD_LENGTH,
+	PWD_LENGTH,
+	ECHO_LENGTH,
+	ENV_LENGTH,
+	EXIT_LENGTH,
+	UNSET_LENGTH,
+	EXPORT_LENGTH,
+};
+
 enum	e_signals
 {
 	HEREDOC,
