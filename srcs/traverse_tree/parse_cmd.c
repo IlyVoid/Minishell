@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_cmd.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/30 10:36:32 by quvan-de          #+#    #+#             */
+/*   Updated: 2024/08/30 14:36:55 by quvan-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/minishell.h"
 
 int parse_cmd(char *cmd, char ***res, t_minishell *minish)
@@ -8,7 +20,7 @@ int parse_cmd(char *cmd, char ***res, t_minishell *minish)
 
 	if (string_is_empty(cmd))
 		cmd = "";
-	arr = wrappers_wplit_quotes(cmd);
+	arr = wrapper_split_quotes(cmd);
 	if (!arr)
 		return (MALLOC_ERR);
 	i = 0;

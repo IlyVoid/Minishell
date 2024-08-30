@@ -31,7 +31,8 @@ enum    e_characters
 	O_ROUND = 40,
 	C_ROUND = 41,
 	REDIR_L = 60,
-	REDIR_R,
+	REDIR_R = 62,
+	COLON = 58,
 };
 
 enum	e_builtins

@@ -6,19 +6,19 @@ int	is_builtin(char *cmd)
 		return (C_EMPTY);
 	if (string_is_empty(cmd))
 		return (C_BLANK);
-	if (ft_strncmp(cmd, "echo", ECHO_LEN) == 0)
+	if (ft_strncmp(cmd, "echo", ECHO_LENGTH) == 0)
 		return (C_ECHO);
-	if (ft_strncmp(cmd, "cd", CD_LEN) == 0)
+	if (ft_strncmp(cmd, "cd", CD_LENGTH) == 0)
 		return (C_CD);
-	if (ft_strncmp(cmd, "pwd", PWD_LEN) == 0)
+	if (ft_strncmp(cmd, "pwd", PWD_LENGTH) == 0)
 		return (C_PWD);
-	if (ft_strncmp(cmd, "export", EXPORT_LEN) == 0)
+	if (ft_strncmp(cmd, "export", EXPORT_LENGTH) == 0)
 		return (C_EXPORT);
-	if (ft_strncmp(cmd, "unset", UNSET_LEN) == 0)
+	if (ft_strncmp(cmd, "unset", UNSET_LENGTH) == 0)
 		return (C_UNSET);
-	if (ft_strncmp(cmd, "env", ENV_LEN) == 0)
+	if (ft_strncmp(cmd, "env", ENV_LENGTH) == 0)
 		return (C_ENV);
-	if (ft_strncmp(cmd, "exit", EXIT_LEN) == 0)
+	if (ft_strncmp(cmd, "exit", EXIT_LENGTH) == 0)
 		return (C_EXIT);
 	return (NOT_BUILTIN);
 }

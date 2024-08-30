@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/11 12:38:10 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/29 14:11:46 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/30 14:14:45 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ int					ft_strcmp(const char *s1, const char *s2);
 
 
 void                ft_free_2d_array(void *ptr);
+void				ft_free_3d_array(void *ptr, int mode);
 
 #endif
