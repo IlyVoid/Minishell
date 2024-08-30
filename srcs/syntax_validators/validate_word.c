@@ -45,6 +45,5 @@ static char	*validate_quotes(char *str, t_bool *status)
 		*status == false;
 		return (str);
 	}
-
-	return (str +1);
+	return (str + 1);
 }

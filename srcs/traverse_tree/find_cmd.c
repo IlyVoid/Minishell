@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find_cmd.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/30 16:06:51 by quvan-de          #+#    #+#             */
+/*   Updated: 2024/08/30 16:06:52 by quvan-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/minishell.h"
 
-static int get_path(char ***path, char **penv, char *cmd);
+static int	get_path(char ***path, char **penv, char *cmd);
 
-int find_cmd(char **cmd, char **penv)
+int	find_cmd(char **cmd, char **penv)
 {
-	int 	status;
+	int		status;
 	char	**path;
 
 	status = get_path(&path, penv, *cmd);
@@ -15,7 +27,7 @@ int find_cmd(char **cmd, char **penv)
 	return (status);
 }
 
-static int get_path(char ***path, char **penv, char *cmd)
+static int	get_path(char ***path, char **penv, char *cmd)
 {
 	char	*str;
 

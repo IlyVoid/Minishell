@@ -19,7 +19,7 @@ int	apply_heredoc(char *heredoc, int *in)
 
 	status = 0;
 	if (*in != -1)
-		close (*in);
+		close(*in);
 	fd = open(heredoc, O_RDONLY);
 	if (unlink(heredoc) == -1)
 		print_err_msg(heredoc, ": File failed to delete\n");

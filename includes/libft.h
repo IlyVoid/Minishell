@@ -25,7 +25,7 @@ typedef enum e_bool
 {
 	BOOL_TRUE = 1,
 	BOOL_FALSE = 0
-}	t_bool;
+}					t_bool;
 
 int					ft_isalnum(int i);
 int					ft_isalpha(int i);
@@ -33,7 +33,7 @@ int					ft_isdigit(int i);
 int					ft_isascii(int i);
 int					ft_isprint(int i);
 t_bool				ft_isspace(char c);
-size_t              ft_arrlen(void **arr);
+size_t				ft_arrlen(void **arr);
 int					ft_toupper(int i);
 int					ft_tolower(int i);
 void				*ft_memset(void *b, int c, size_t len);
@@ -77,8 +77,7 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 int					ft_strcmp(const char *s1, const char *s2);
 
-
-void                ft_free_2d_array(void *ptr);
+void				ft_free_2d_array(void *ptr);
 void				ft_free_3d_array(void *ptr, int mode);
 
 #endif

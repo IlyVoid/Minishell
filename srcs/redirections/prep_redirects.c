@@ -12,14 +12,14 @@
 
 #include "../../includes/minishell.h"
 
-static int prepare_heredocs(char ***redirs, int *hd_num, t_minishell *minish);
-static char *get_hd_name(int *hd_num);
-static void rm_hd_files(int *hd_num);
+static int	prepare_heredocs(char ***redirs, int *hd_num, t_minishell *minish);
+static char	*get_hd_name(int *hd_num);
+static void	rm_hd_files(int *hd_num);
 
-int prepare_redirects(char *redirects_line, int *hd_num, char ***redirs,
-					  t_minishell *minish)
+int	prepare_redirects(char *redirects_line, int *hd_num, char ***redirs,
+		t_minishell *minish)
 {
-	int status;
+	int	status;
 
 	if (redirects_line == NULL)
 	{
@@ -41,12 +41,12 @@ int prepare_redirects(char *redirects_line, int *hd_num, char ***redirs,
 	return (status);
 }
 
-static int prepare_heredocs(char ***redirs, int *hd_num, t_minishell *minish)
+static int	prepare_heredocs(char ***redirs, int *hd_num, t_minishell *minish)
 {
-	int     i;
-	int     hd_counter;
-	int     status;
-	char    *hd_name;
+	int		i;
+	int		hd_counter;
+	int		status;
+	char	*hd_name;
 
 	hd_name = get_hd_name(hd_num);
 	if (!hd_name)
@@ -69,10 +69,10 @@ static int prepare_heredocs(char ***redirs, int *hd_num, t_minishell *minish)
 	return (status);
 }
 
-static char *get_hd_name(int *hd_num)
+static char	*get_hd_name(int *hd_num)
 {
-	char *filename;
-	char *num;
+	char	*filename;
+	char	*num;
 
 	num = ft_itoa(*hd_num);
 	if (!num)
@@ -84,11 +84,11 @@ static char *get_hd_name(int *hd_num)
 
 // bro create the print_err_msg function tmrw
 // create unlink....
-static void rm_hd_files(int *hd_num)
+static void	rm_hd_files(int *hd_num)
 {
-	char    *file_name;
-	char    *num;
-	int     i;
+	char	*file_name;
+	char	*num;
+	int		i;
 
 	i = -1;
 	while (++i < *hd_num)
@@ -97,14 +97,14 @@ static void rm_hd_files(int *hd_num)
 		if (!num)
 		{
 			print_err_msg("unlink", ": malloc error occured");
-			continue;
+			continue ;
 		}
 		file_name = ft_strjoin(&(HEREDOC_NAME[2]), num);
 		free(num);
 		if (!file_name)
 		{
 			print_err_msg("unlink", ": malloc error occured");
-			continue;
+			continue ;
 		}
 		if (unlink(file_name) != 0)
 			perror_err_msg("unlink: ", file_name);

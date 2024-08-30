@@ -32,16 +32,16 @@ int	apply_redirects(char **redirs, t_minishell *minish)
 		i++;
 	}
 	if (status == 0)
-		status = replace_fd(in ,out);
+		status = replace_fd(in, out);
 	return (status);
 }
 
 /* applies the appropriate redirection to the given command sign,
  * it uses strncmp to compare between the redir (given sign) and the sign */
 
-int apply_redirect(char *redir, t_minishell *minish, int *in, int *out)
+int	apply_redirect(char *redir, t_minishell *minish, int *in, int *out)
 {
-	int status;
+	int	status;
 
 	status = 0;
 	if (ft_strncmp(redir, "<<", 2) == 0)
@@ -55,13 +55,13 @@ int apply_redirect(char *redir, t_minishell *minish, int *in, int *out)
 	return (status);
 }
 
-
-/* check if 'in' or 'out' are valid, duplicate them to stdin and stdout and closes original.
+/* check if 'in' or 'out' are valid,
+	duplicate them to stdin and stdout and closes original.
  * if faulty return DUP_FAILURE else 0 */
 
-int replace_fd(int in, int out)
+int	replace_fd(int in, int out)
 {
-	int status;
+	int	status;
 
 	status = 0;
 	if (in != -1)

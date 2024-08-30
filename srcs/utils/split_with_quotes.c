@@ -12,12 +12,12 @@
 
 #include "../../includes/minishell.h"
 
-static int skip_quotes(char *str);
+static int	skip_quotes(char *str);
 
 char	**wrapper_split_quotes(char *str)
 {
 	char	**res;
-	int 	i;
+	int		i;
 
 	i = 0;
 	while (str[i] != NULL_TERM)
@@ -34,7 +34,7 @@ char	**wrapper_split_quotes(char *str)
 	return (res);
 }
 
-static int skip_quotes(char *str)
+static int	skip_quotes(char *str)
 {
 	int	i;
 

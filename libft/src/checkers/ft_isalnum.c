@@ -14,8 +14,8 @@
 
 int	ft_isalnum(int i)
 {
-	if (('0' <= i && i <= '9') || ('A' <= i && i <= 'Z')
-		|| ('a' <= i && i <= 'z'))
+	if (('0' <= i && i <= '9') || ('A' <= i && i <= 'Z') || ('a' <= i
+			&& i <= 'z'))
 		return (1);
 	return (0);
 }

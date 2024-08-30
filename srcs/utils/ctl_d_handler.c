@@ -13,17 +13,17 @@
 #include "../../includes/minishell.h"
 
 /* print error message with exit */
-void    handle_ctl_d_error(char *msg)
+void	handle_ctl_d_error(char *msg)
 {
 	ft_putstr_fd(msg, STDERR_FILENO);
 	ft_putstr_fd("exit\n", STDERR_FILENO);
 }
 
-int handle_ctl_d(char *prompt)
+int	handle_ctl_d(char *prompt)
 {
-	int     len;
-	char    *shift;
-	char    *shift_len;
+	int		len;
+	char	*shift;
+	char	*shift_len;
 
 	len = ft_strlen(prompt);
 	free(prompt);

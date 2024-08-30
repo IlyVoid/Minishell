@@ -6,14 +6,14 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 10:57:17 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/30 14:36:26 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/30 16:05:57 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static int build_arr_before_wc_split(char ****t_3d_arr_tmp, char ***arr,
-							   int *arr_new_length)
+static int	build_arr_before_wc_split(char ****t_3d_arr_tmp, char ***arr,
+		int *arr_new_length)
 {
 	int		i;
 	char	***local_3d_arr_tmp;
@@ -21,7 +21,7 @@ static int build_arr_before_wc_split(char ****t_3d_arr_tmp, char ***arr,
 	i = -1;
 	local_3d_arr_tmp = *t_3d_arr_tmp;
 	local_3d_arr_tmp = ft_calloc(ft_arrlen((void **)*arr) + 1,
-							  sizeof(char **));
+			sizeof(char **));
 	if (!local_3d_arr_tmp)
 		return (MALLOC_ERR);
 	while ((*arr)[i++])
@@ -47,10 +47,10 @@ int	build_array_before_wc(char ***arr, int i, int k, int j)
 	int		arr_new_length;
 
 	arr_new_length = 0;
-	if (build_arr_before_wc_split(&t_3d_arr_tmp, arr, &arr_new_length)
-		== MALLOC_ERR)
+	if (build_arr_before_wc_split(&t_3d_arr_tmp, arr,
+			&arr_new_length) == MALLOC_ERR)
 		return (MALLOC_ERR);
-	built_new =ft_calloc(arr_new_length + 1, sizeof(char *));
+	built_new = ft_calloc(arr_new_length + 1, sizeof(char *));
 	if (!built_new)
 	{
 		ft_free_3d_array(t_3d_arr_tmp, 0);

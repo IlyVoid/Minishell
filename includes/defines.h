@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   defines.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/30 15:56:09 by quvan-de          #+#    #+#             */
+/*   Updated: 2024/08/30 15:56:13 by quvan-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef DEFINES_H
 # define DEFINES_H
 
-enum    e_exit_status
+enum	e_exit_status
 {
 	SUCCESS,
 	GENERIC_ERROR,
@@ -14,7 +26,7 @@ enum    e_exit_status
 	CMD_NF_FAILURE = 127,
 };
 
-enum    e_characters
+enum	e_characters
 {
 	NULL_TERM,
 	SEPERATOR = 31,

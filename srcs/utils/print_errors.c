@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 14:37:42 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/27 13:26:35 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/30 16:04:08 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ void	arg_err_msg(char *cmd, char *arg, char *msg)
 	free(msg);
 }
 
-/* print syntax error in a string by indicating an unexpected token by identifying the type of token and
+/* print syntax error in a string by indicating an unexpected
+ * token by identifying the type of token and
  * modifying the null term position of the string */
 
 void	syntax_err_msg(char *str)
@@ -99,7 +100,8 @@ void	syntax_err_msg(char *str)
 			i++;
 	if (i != 0)
 		str[i] = NULL_TERM;
-	ft_putstr_fd("\033[0;31md-sh: \033[0;0msyntax error " "unexpected roken '", STDERR_FILENO);
+	ft_putstr_fd("\033[0;31md-sh: \033[0;0msyntax error "
+		"unexpected roken '", STDERR_FILENO);
 	ft_putstr_fd(str, STDERR_FILENO);
 	ft_putendl_fd("'", STDERR_FILENO);
 }

@@ -16,7 +16,7 @@ static int	check_provided_path(char *cmd_name, char **cmd_in_path);
 static int	find_cmd_in_path(char *char_name, char **paths, char **cmd_in_path);
 static char	*allocate_cmd_string(char *cmd_name, int *length, char **paths);
 static int	check_cmd_in_path(char **selection, int len, char *cmd_name,
-							 char*path);
+				char *path);
 
 int	find_exe(char **cmnd, char **paths)
 {
@@ -120,7 +120,7 @@ static char	*allocate_cmd_string(char *cmd_name, int *len, char **paths)
 }
 
 static int	check_cmd_in_path(char **selection, int len, char *cmd_name,
-							 char *path)
+		char *path)
 {
 	char		*temp;
 	struct stat	st;

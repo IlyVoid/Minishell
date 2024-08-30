@@ -12,11 +12,11 @@
 
 #include "../../includes/minishell.h"
 
-int parse_cmd(char *cmd, char ***res, t_minishell *minish)
+int	parse_cmd(char *cmd, char ***res, t_minishell *minish)
 {
 	char	**arr;
-	int 	i;
-	int 	status;
+	int		i;
+	int		status;
 
 	if (string_is_empty(cmd))
 		cmd = "";
