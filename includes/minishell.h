@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/30 16:01:37 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/08/31 18:39:45 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void		arg_err_msg(char *cmd, char *arg, char *msg);
 void		handle_ctl_d_error(char *msg);
 int			handle_ctl_d(char *prompt);
 char		**wrapper_split_quotes(char *str);
+int			build_array_before_wc(char ***arr, int i, int k, int j);
 
 /* VALIDATE SYNTAX */
 char		*validate_redirect(char *str, t_bool *status);
