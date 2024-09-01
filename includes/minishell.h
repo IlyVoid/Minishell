@@ -29,6 +29,8 @@
 # include <unistd.h>
 # include <stdbool.h>
 
+extern volatile sig_atomic_t	g_sgnl;
+
 typedef struct s_minishell
 {
 	char	**env;
@@ -59,6 +61,9 @@ int			find_cmd(char **cmd, char **penv);
 int			find_exe(char **cmnd, char **paths);
 int			is_builtin(char *cmd);
 int			parse_cmd(char *cmd, char ***res, t_minishell *minish);
+int 		bracket_traverser(t_node **node, t_minishell *minish);
+int 		builtin_runner(char **cmd, char **redir, t_minishell *minish, int cmd_type);
+int 		cmd_traverser(char *cmd, char **redir, t_minishell *minish);
 
 /* UTILS */
 void		remove_quotes(char *str, int i, int j);
@@ -71,6 +76,10 @@ void		handle_ctl_d_error(char *msg);
 int			handle_ctl_d(char *prompt);
 char		**wrapper_split_quotes(char *str);
 int			build_array_before_wc(char ***arr, int i, int k, int j);
+
+/* SIGNALS */
+void		toggler(int mode);
+void		signal_interceptor(int mode);
 
 /* VALIDATE SYNTAX */
 char		*validate_redirect(char *str, t_bool *status);

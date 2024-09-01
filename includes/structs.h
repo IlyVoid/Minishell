@@ -15,6 +15,21 @@
 
 typedef struct dirent	t_dirent;
 
+typedef struct	s_wc
+{
+	DIR			*dir;
+	t_dirent	*entry;
+	char		***temp_arr;
+	char		**new_arr;
+	char		**new_sorted_arr;
+	char		**new_final_arr;
+	int			arr_length;
+	int			ent_length;
+	int			status;
+	int			abs_path_flag;
+	t_bool		dot_ind;
+}				t_wc;
+
 typedef struct s_node
 {
 	int					type;
@@ -35,6 +50,13 @@ typedef struct s_pipe
 	t_node				*left;
 	t_node				*right;
 }						t_pipe;
+
+typedef struct	s_bracket
+{
+	int			type;
+	t_node 		*left;
+	t_node 		*right;
+}				t_bracket;
 
 typedef struct s_redir
 {

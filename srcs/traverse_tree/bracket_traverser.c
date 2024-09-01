@@ -19,7 +19,7 @@ int	bracket_traverser(t_node **root, t_minishell *minish)
 	t_node	*node;
 
 	if (minish->is_parent == false)
-		signal_interceptor(DEFAULT);
+		signal_interceptor(DEFAULT); // yet to create
 	pid = fork();
 	if (pid == -1)
 		return (FORK_FAILURE);
@@ -28,7 +28,7 @@ int	bracket_traverser(t_node **root, t_minishell *minish)
 		signal_interceptor(DEFAULT);
 		minish->is_parent = false;
 		node = *root;
-		status = tree_traverser(&(node->left), minish);
+		status = tree_traverser(&(node->left), minish); // in progress
 		exit (status);
 	}
 	else
