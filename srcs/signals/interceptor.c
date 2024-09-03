@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   interceptor.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/03 08:24:38 by quvan-de          #+#    #+#             */
+/*   Updated: 2024/09/03 08:24:40 by quvan-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/minishell.h"
 
 // Gives ability to use interactive cmds like Ctl-C, it injects a new line into the terminal.

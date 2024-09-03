@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 15:56:09 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/30 15:56:13 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/03 08:31:07 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,11 +154,11 @@ enum	e_signals_echo
 
 # ifndef READ
 #  define READ 0
-# ifndef
+# endif
 
 # ifndef NOT_FOUND
 #  define NOT_FOUND -1
-# ifndef
+# endif
 
 # ifndef NOT_EXPANDABLE
 #  define NOT_EXPANDABLE -1

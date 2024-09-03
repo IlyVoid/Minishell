@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/31 18:39:45 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/03 10:15:46 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,8 @@
 # include "./defines.h"
 # include "./libft.h"
 # include "./structs.h"
-# include <dirent.h>
-# include <fcntl.h>
-# include <readline/history.h>
-# include <readline/readline.h>
-# include <signal.h>
-# include <stdio.h>
-# include <sys/ioctl.h>
-# include <sys/stat.h>
-# include <sys/wait.h>
-# include <termios.h>
-# include <unistd.h>
-# include <stdbool.h>
 
-extern volatile sig_atomic_t	g_sgnl;
+
 
 typedef struct s_minishell
 {
@@ -40,8 +28,8 @@ typedef struct s_minishell
 	char	*history_path;
 	int		exit_status;
 	t_node	*root;
-	t_bool	is_parent;
-	t_bool	is_oldpwd_unset;
+	bool	is_parent;
+	bool	is_oldpwd_unset;
 }			t_minishell;
 
 /* REDIRECTS */
