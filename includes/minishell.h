@@ -52,6 +52,8 @@ int			parse_cmd(char *cmd, char ***res, t_minishell *minish);
 int 		bracket_traverser(t_node **node, t_minishell *minish);
 int 		builtin_runner(char **cmd, char **redir, t_minishell *minish, int cmd_type);
 int 		cmd_traverser(char *cmd, char **redir, t_minishell *minish);
+int 		cmd_br_traverser(t_node **root, t_minishell *minish);
+int 		pipe_traverser(t_node **root, t_minishell *minish);
 
 /* UTILS */
 void		remove_quotes(char *str, int i, int j);
