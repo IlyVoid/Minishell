@@ -80,4 +80,53 @@ typedef struct s_redir
 	char				**redirs;
 }						t_redir;
 
+typedef struct	s_exp_dollar
+{
+	char	*part_env;
+	int 	i;
+	int 	j;
+	int 	s_quote;
+	int 	d_quote;
+	int 	ind_last_part;
+	int 	lst_pos_env;
+}			t_exp_dollar;
+
+typedef struct	s_ds
+{
+	char	*new_str;
+	char	*first;
+	char	*mid;
+	char	*last;
+	int 	new_len_str;
+	int 	last_ind;
+}			t_ds;
+
+typedef struct	s_and
+{
+	int 	type;
+	t_node	*left;
+	t_node	*right;
+}			t_and;
+
+typedef struct	s_or
+{
+	int 	type;
+	t_node	*left;
+	t_node	*right;
+}			t_or;
+
+typedef struct	s_cmd
+{
+	int 	type;
+	t_node	*redir;
+	char	*cmd;
+}			t_cmd;
+
+typedef struct	t_cmd_br
+{
+	int 	type;
+	t_node	*right;
+	t_node	*left;
+}			t_cmd_br;
+
 #endif

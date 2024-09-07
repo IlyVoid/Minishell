@@ -54,6 +54,9 @@ int 		builtin_runner(char **cmd, char **redir, t_minishell *minish, int cmd_type
 int 		cmd_traverser(char *cmd, char **redir, t_minishell *minish);
 int 		cmd_br_traverser(t_node **root, t_minishell *minish);
 int 		pipe_traverser(t_node **root, t_minishell *minish);
+int 		tree_traverser(t_node **root, t_minishell *minish);
+int 		and_traverser(t_node **root, t_minishell *minish);
+int 		or_traverser(t_node **root, t_minishell *minish);
 
 /* UTILS */
 void		remove_quotes(char *str, int i, int j);
