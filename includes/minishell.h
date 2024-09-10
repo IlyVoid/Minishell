@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/03 10:15:46 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/10 14:19:32 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include "./defines.h"
 # include "./libft.h"
 # include "./structs.h"
-
-
 
 typedef struct s_minishell
 {
@@ -49,14 +47,16 @@ int			find_cmd(char **cmd, char **penv);
 int			find_exe(char **cmnd, char **paths);
 int			is_builtin(char *cmd);
 int			parse_cmd(char *cmd, char ***res, t_minishell *minish);
-int 		bracket_traverser(t_node **node, t_minishell *minish);
-int 		builtin_runner(char **cmd, char **redir, t_minishell *minish, int cmd_type);
-int 		cmd_traverser(char *cmd, char **redir, t_minishell *minish);
-int 		cmd_br_traverser(t_node **root, t_minishell *minish);
-int 		pipe_traverser(t_node **root, t_minishell *minish);
-int 		tree_traverser(t_node **root, t_minishell *minish);
-int 		and_traverser(t_node **root, t_minishell *minish);
-int 		or_traverser(t_node **root, t_minishell *minish);
+int			bracket_traverser(t_node **node, t_minishell *minish);
+int			builtin_runner(char **cmd, char **redir, t_minishell *minish,
+				int cmd_type);
+int			cmd_traverser(char *cmd, char **redir, t_minishell *minish);
+int			cmd_br_traverser(t_node **root, t_minishell *minish);
+int			pipe_traverser(t_node **root, t_minishell *minish);
+int			tree_traverser(t_node **root, t_minishell *minish);
+int			and_traverser(t_node **root, t_minishell *minish);
+int			or_traverser(t_node **root, t_minishell *minish);
+int			wait_childs(pid_t *pids, int num);
 
 /* UTILS */
 void		remove_quotes(char *str, int i, int j);

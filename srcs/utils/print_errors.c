@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 14:37:42 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/30 16:04:08 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/09 16:48:40 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,8 @@ void	syntax_err_msg(char *str)
 	if (i != 0)
 		str[i] = NULL_TERM;
 	ft_putstr_fd("\033[0;31md-sh: \033[0;0msyntax error "
-		"unexpected roken '", STDERR_FILENO);
+		"unexpected roken '",
+		STDERR_FILENO);
 	ft_putstr_fd(str, STDERR_FILENO);
 	ft_putendl_fd("'", STDERR_FILENO);
 }

@@ -1,10 +1,10 @@
 #include "../../includes/minishell.h"
 
-int cmd_br_traverser(t_node **root, t_minishell *minish)
+int	cmd_br_traverser(t_node **root, t_minishell *minish)
 {
-	int 	status;
-	pid_t	pid;
-	t_node	*node;
+	int status;
+	pid_t pid;
+	t_node *node;
 
 	if (minish->is_parent == false)
 		signal_interceptor(DEFAULT);
@@ -19,7 +19,7 @@ int cmd_br_traverser(t_node **root, t_minishell *minish)
 		status = apply_redirects(((t_redir *)(node->left))->redirs, minish);
 		if (status == 0)
 			status = tree_traversal(&(node->right), minish);
-		exit (status);
+		exit(status);
 	}
 	else
 		status = wait_childs(&pid, 1);

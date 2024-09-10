@@ -6,14 +6,14 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 10:57:17 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/30 16:05:57 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/09 16:53:47 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
 static int	build_arr_before_wc_split(char ****t_3d_arr_tmp, char ***arr,
-		int *arr_new_length)
+										int *arr_new_length)
 {
 	int		i;
 	char	***local_3d_arr_tmp;

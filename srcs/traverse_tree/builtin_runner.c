@@ -13,10 +13,11 @@
 #include "../../includes/minishell.h"
 #include <unistd.h>
 
-int	run_without_redir(char **cmd, t_minishell *minish, int cmd_type);
-int	run_with_redir(char **cmd, char **redir, t_minishell *minish, int cmd_type);
-int	cpy_fd_std(int *in_fd, int *out_fd, char *cmd);
-void	return_fd_std(int *in_fd, int *out_fd, int*status, char *cmd);
+int		run_without_redir(char **cmd, t_minishell *minish, int cmd_type);
+int		run_with_redir(char **cmd, char **redir, t_minishell *minish,
+			int cmd_type);
+int		cpy_fd_std(int *in_fd, int *out_fd, char *cmd);
+void	return_fd_std(int *in_fd, int *out_fd, int *status, char *cmd);
 
 int	builtin_runner(char **cmd, char **redir, t_minishell *minish, int cmd_type)
 {
@@ -72,13 +73,13 @@ int	cpy_fd_std(int *in_fd, int *out_fd, char *cmd)
 
 void	return_fd_std(int *in_fd, int *out_fd, int *status, char *cmd)
 {
-	int		redir_status;
+	int	redir_status;
 
 	redir_status = 0;
 	if (dup2(*in_fd, STDIN_FILENO) == -1 || dup2(*out_fd, STDOUT_FILENO) == -1)
 	{
 		print_err_msg(cmd, ": occurence of dup2() error"
-				"possible error in behaviour\n");
+							"possible error in behaviour\n");
 		redir_status = DUP_FAILURE;
 	}
 	close(*in_fd);

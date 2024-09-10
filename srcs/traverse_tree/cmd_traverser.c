@@ -12,12 +12,12 @@
 
 #include "../../includes/minishell.h"
 
-int external_runner(char **cmnd, char **redir, t_minishell *minish);
+int	external_runner(char **cmnd, char **redir, t_minishell *minish);
 
-int cmd_traverser(char *cmd, char **redir, t_minishell *minish)
+int	cmd_traverser(char *cmd, char **redir, t_minishell *minish)
 {
-	int 	cmd_type;
-	int 	status;
+	int		cmd_type;
+	int		status;
 	char	**cmnd;
 
 	status = parse_cmd(cmd, &cmnd, minish);
@@ -34,9 +34,9 @@ int cmd_traverser(char *cmd, char **redir, t_minishell *minish)
 	return (status);
 }
 
-int external_runner(char **cmnd, char **redir, t_minishell *minish)
+int	external_runner(char **cmnd, char **redir, t_minishell *minish)
 {
-	int 	status;
+	int		status;
 	pid_t	pid;
 
 	if (minish->is_parent == false)

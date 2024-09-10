@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tree_traverser.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/09 16:42:01 by quvan-de          #+#    #+#             */
+/*   Updated: 2024/09/09 16:42:05 by quvan-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/minishell.h"
 
-int tree_traverser(t_node **root, t_minishell *minish)
+int	tree_traverser(t_node **root, t_minishell *minish)
 {
-	int type;
-	int status;
+	int	type;
+	int	status;
 
 	status = true;
 	type = (*root)->type;
@@ -12,21 +24,22 @@ int tree_traverser(t_node **root, t_minishell *minish)
 	else if (type == T_OR)
 		status = or_traverser(root, minish);
 	else if (type == T_PIPE)
-		status = pipe_traverser(root,  minish);
+		status = pipe_traverser(root, minish);
 	else if (type == T_BRACKET)
 		status = bracket_traverser(root, minish);
 	else if (type == T_CMD_BR)
 		status = cmd_br_traverser(root, minish);
 	else if (type == T_CMD)
 		status = cmd_traverser(((t_cmd *)*root)->cmd,
-							   ((t_redir *)((t_cmd *)*root)->redir)->redirs, minish);
+								((t_redir *)((t_cmd *)*root)->redir)->redirs,
+								minish);
 	tree_free(root);
 	return (status);
 }
 
-int and_traverser(t_node **root, t_minishell *minish)
+int	and_traverser(t_node **root, t_minishell *minish)
 {
-	int 	status;
+	int		status;
 	t_node	*node;
 
 	node = *root;
@@ -36,9 +49,9 @@ int and_traverser(t_node **root, t_minishell *minish)
 	return (status);
 }
 
-int or_traverser(t_node **root, t_minishell *minish)
+int	or_traverser(t_node **root, t_minishell *minish)
 {
-	int 	status;
+	int		status;
 	t_node	*node;
 
 	node = *root;

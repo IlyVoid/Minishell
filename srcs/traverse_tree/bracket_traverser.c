@@ -29,7 +29,7 @@ int	bracket_traverser(t_node **root, t_minishell *minish)
 		minish->is_parent = false;
 		node = *root;
 		status = tree_traverser(&(node->left), minish); // in progress
-		exit (status);
+		exit(status);
 	}
 	else
 		status = wait_childs(&pid, 1);

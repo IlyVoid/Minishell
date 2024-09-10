@@ -1,14 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pipe_traverser.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/09 16:42:07 by quvan-de          #+#    #+#             */
+/*   Updated: 2024/09/09 16:44:32 by quvan-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/minishell.h"
 
-int first_traversal(t_node **node, t_minishell *minish, int pipefd[2], int pids[2]);
-int second_traversal(t_node **node, t_minishell *minish, int pipefd[2], int pids[2]);
+int	first_traversal(t_node **node, t_minishell *minish, int pipefd[2],
+		int pids[2]);
+int	second_traversal(t_node **node, t_minishell *minish, int pipefd[2],
+		int pids[2]);
 
 int	pipe_traverser(t_node **root, t_minishell *minish)
 {
-	int 	status;
-	int 	pipefd[2];
+	int		status;
+	int		pipefd[2];
 	pid_t	pids[2];
-	t_node *node;
+	t_node	*node;
 
 	if (minish->is_parent == false)
 		signal_interceptor(DEFAULT);
@@ -22,9 +36,10 @@ int	pipe_traverser(t_node **root, t_minishell *minish)
 	return (status);
 }
 
-int first_traversal(t_node **node, t_minishell *minish, int pipefd[2], int pids[2])
+int	first_traversal(t_node **node, t_minishell *minish, int pipefd[2],
+		int pids[2])
 {
-	int status;
+	int	status;
 
 	pids[FIRST] = fork();
 	if (pids[FIRST] == -1)
@@ -41,14 +56,15 @@ int first_traversal(t_node **node, t_minishell *minish, int pipefd[2], int pids[
 		}
 		close(pipefd[WRITE]);
 		status = tree_traverser(node, minish);
-		exit (status);
+		exit(status);
 	}
 	else
 		close(pipefd[WRITE]);
 	return (0);
 }
 
-int second_traversal(t_node **node, t_minishell *minish, int pipefd[2], int pids[2])
+int	second_traversal(t_node **node, t_minishell *minish, int pipefd[2],
+		int pids[2])
 {
 	int	status;
 
