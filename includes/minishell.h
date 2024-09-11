@@ -59,7 +59,7 @@ int			or_traverser(t_node **root, t_minishell *minish);
 int			wait_childs(pid_t *pids, int num);
 
 /* PARSER */
-int			create_tree(char *str, t_node *root, int *hd_num, t_minishell *minish);
+int			create_tree(char *str, t_node **root, int *hd_num, t_minishell *minish);
 t_bool		create_node(t_node_info *info, t_node **root);
 int 		add_or_and_pipe_tree(t_node_info *info, t_node **root, int *hd_num,
 								 t_minishell *minish);
@@ -69,6 +69,14 @@ int 		add_cmd(t_node_info *info, t_node **root, int *hd_num,
 					t_minishell *minish);
 int 		add_cmd_br(t_node_info *info, t_node **root, int *hd_num,
 					   t_minishell *minish);
+t_and		*init_t_and();
+t_or		*init_t_or();
+t_pipe		*init_t_pipe();
+t_bracket	*init_t_br();
+t_cmd		*init_t_cmd();
+t_cmd_br	*init_t_cmd_br();
+t_redir		*init_t_redir();
+void		free_tree(t_node **root);
 
 /* UTILS */
 void		remove_quotes(char *str, int i, int j);

@@ -2,7 +2,7 @@
 
 t_bool	get_type(char *str, t_node_info **info);
 
-int create_tree(char *str, t_node *root, int *hd_num, t_minishell *minish)
+int create_tree(char *str, t_node **root, int *hd_num, t_minishell *minish)
 {
 	t_node_info	*info;
 	t_bool		status;
