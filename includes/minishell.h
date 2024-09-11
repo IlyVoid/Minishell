@@ -58,6 +58,9 @@ int			and_traverser(t_node **root, t_minishell *minish);
 int			or_traverser(t_node **root, t_minishell *minish);
 int			wait_childs(pid_t *pids, int num);
 
+/* EXECUTOR */
+int 		lexer(t_node_info **node, char *str, int type, int i); // Yet to make.
+
 /* PARSER */
 int			create_tree(char *str, t_node **root, int *hd_num, t_minishell *minish);
 t_bool		create_node(t_node_info *info, t_node **root);
