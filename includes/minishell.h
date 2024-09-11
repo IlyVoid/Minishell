@@ -62,7 +62,13 @@ int			wait_childs(pid_t *pids, int num);
 
 
 /* LEXER */
-int 		lexer(t_node_info **node, char *str, int type, int i); // Yet to make.
+int 		lexer(t_node_info **node, char *str, int type, int i);
+int 		cmd_block(t_node_info **node, char *str, int type);
+int 		cmd_br_block(t_node_info **node, char *str, int type);
+t_bool		is_odd(int n);
+int 		check_round_br(char *str, int point);
+int			check_quote(char *str, int point, int symbol);
+int 		first_char_is_br_space_excluded(char *str);
 
 /* PARSER */
 int			create_tree(char *str, t_node **root, int *hd_num, t_minishell *minish);
