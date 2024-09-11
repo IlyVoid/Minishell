@@ -59,6 +59,9 @@ int			or_traverser(t_node **root, t_minishell *minish);
 int			wait_childs(pid_t *pids, int num);
 
 /* EXECUTOR */
+
+
+/* LEXER */
 int 		lexer(t_node_info **node, char *str, int type, int i); // Yet to make.
 
 /* PARSER */
