@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cmd_blocks.c                                       :+:      :+:    :+:   */
+/*   quote_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/11 10:44:26 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/11 10:44:28 by quvan-de         ###   ########.fr       */
+/*   Created: 2024/09/11 10:47:15 by quvan-de          #+#    #+#             */
+/*   Updated: 2024/09/11 11:26:36 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int cmd_block(t_node_info **node, char *str, int type)
+void	check_inside_quuotes(char *str, int *i, int *quote_type)
 {
-	if (redir_search(str))
-		return (set_node_info_cmd(node, str, type));
-	else
-		return (set_node_simple_cmd(node, str, T_CMD));
-	return (0);
-}
-
-int cmd_br_block(t_node_info **node, char *str, int type)
-{
-	if (search_br(str))
-		return (set_node_info_cmd_br(node, str, type));
-	return (0);
+	if (str[*i] == S_QUOTE && *quote_type == S_QUOTE)
+		*quote_type = 0;
+	else if (str[*i] == S_QUOTE && *quote_type == 0)
+		*quote_type = S_QUOTE;
+	else  if (str[*i] == D_QUOTE && *quote_type == D_QUOTE)
+		*quote_type = 0;
+	else if (str[*i] == D_QUOTE && *quote_type == 0)
+		*quote_type = D_QUOTE;
 }

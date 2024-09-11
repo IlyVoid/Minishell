@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/10 14:19:32 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/11 11:27:38 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,8 @@ t_bool		is_odd(int n);
 int 		check_round_br(char *str, int point);
 int			check_quote(char *str, int point, int symbol);
 int 		first_char_is_br_space_excluded(char *str);
+int			last_char_is_br_space_excluded(char *str);
+void		check_inside_quotes(char *str, int *i, int *quote_type);
 
 /* PARSER */
 int			create_tree(char *str, t_node **root, int *hd_num, t_minishell *minish);

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   common_utils.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/11 10:44:19 by quvan-de          #+#    #+#             */
+/*   Updated: 2024/09/11 10:44:22 by quvan-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/minishell.h"
 
 t_bool	is_odd(int n)
@@ -61,6 +73,23 @@ int first_char_is_br_space_excluded(char *str)
 		while (str[i] == SPCE)
 			i++;
 		if (str[i] == O_ROUND)
+			return (1);
+		else
+			return (0);
+	}
+	return (0);
+}
+
+int	last_char_is_br_space_excluded(char *str)
+{
+	int	i;
+
+	i = (int)ft_strlen(str) - 1;
+	while (i >= 0)
+	{
+		if (str[i] == SPCE)
+			i--;
+		if (str[i] == C_ROUND)
 			return (1);
 		else
 			return (0);
