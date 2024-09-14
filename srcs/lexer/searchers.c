@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quote_check.c                                      :+:      :+:    :+:   */
+/*   searchers.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/11 10:47:15 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/14 10:22:32 by quvan-de         ###   ########.fr       */
+/*   Created: 2024/09/14 10:23:56 by quvan-de          #+#    #+#             */
+/*   Updated: 2024/09/14 11:30:24 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-void	check_inside_quotes(char *str, int *i, int *quote_type)
+int	br_search(char *str)
 {
-	if (str[*i] == S_QUOTE && *quote_type == S_QUOTE)
-		*quote_type = 0;
-	else if (str[*i] == S_QUOTE && *quote_type == 0)
-		*quote_type = S_QUOTE;
-	else  if (str[*i] == D_QUOTE && *quote_type == D_QUOTE)
-		*quote_type = 0;
-	else if (str[*i] == D_QUOTE && *quote_type == 0)
-		*quote_type = D_QUOTE;
+	int	i;
+	int	type_of_quote;
+	int	key;
+
+	i = 0;
+	type_of_quote = 0;
+	key = 0;
+	while (str[i] != NULL_TERM)
+	{
+
+	}
 }
