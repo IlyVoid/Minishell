@@ -59,10 +59,15 @@ int			or_traverser(t_node **root, t_minishell *minish);
 int			wait_childs(pid_t *pids, int num);
 
 /* EXECUTOR */
+
 /* LEXER */
 int			lexer(t_node_info **node, char *str, int type, int i);
 int			cmd_block(t_node_info **node, char *str, int type);
 int			cmd_br_block(t_node_info **node, char *str, int type);
+int			and_if_condition_block(t_node_info **node, char *str, int type,
+									  int i);
+int 		pipe_block(t_node_info **node, char *str, int type, int i);
+int 		br_block(t_node_info **node, char *str, int type);
 t_bool		is_odd(int n);
 int			check_round_br(char *str, int point);
 int			check_quote(char *str, int point, int symbol);
@@ -70,6 +75,15 @@ int			first_char_is_br_space_excluded(char *str);
 int			last_char_is_br_space_excluded(char *str);
 void		check_inside_quotes(char *str, int *i, int *quote_type);
 int			br_search(char *str);
+int 		redir_search(char *str);
+int 		put_info_cmd_node(t_node_info **info, char *str, int type);
+int 		put_info_and_or_pipe_node(t_node_info **info, char *str, int point,
+									  int type);
+int 		put_info_bracket_node(t_node_info **info, char *str, int type);
+int 		put_info_cmd_br_node(t_node_info **info, char *str, int type);
+int 		put_simple_cmd_node(t_node_info **info, char *str, int type);
+char		*part_cmd(char *str, int *i, int type_of_quote);
+int			mod_cmd_str_no_br(char *str, char **redir, int i, int j);
 
 /* PARSER */
 int			create_tree(char *str, t_node **root, int *hd_num,
