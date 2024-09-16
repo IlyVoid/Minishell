@@ -6,7 +6,7 @@
 /*   By: brsantsc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 14:37:07 by brsantsc          #+#    #+#             */
-/*   Updated: 2024/08/30 16:06:32 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/16 09:42:40 by brsantsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,4 @@ void	sig_err_msg(void)
 			exit(0);
 		}
 	}
-}
-int	main(void)
-{
-	sig_handler();
-	sig_err_msg();
-	while (1)
-	{
-		//printf("Running... Press Ctrl+C or Ctrl+\\ to test signal handling.\n");
-		//sleep(2);
-	}
-	return (0);
 }

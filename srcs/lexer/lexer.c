@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:44:33 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/11 10:44:37 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/16 09:52:14 by brsantsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	lexer(t_node_info **node, char *str, int type, int i)
 {
-	int status;
+	int	status;
 
 	while (i >= 0)
 	{

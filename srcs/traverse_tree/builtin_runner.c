@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 18:40:49 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/31 19:29:55 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/16 11:16:14 by brsantsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	return_fd_std(int *in_fd, int *out_fd, int *status, char *cmd)
 	if (dup2(*in_fd, STDIN_FILENO) == -1 || dup2(*out_fd, STDOUT_FILENO) == -1)
 	{
 		print_err_msg(cmd, ": occurence of dup2() error"
-							"possible error in behaviour\n");
+			"possible error in behaviour\n");
 		redir_status = DUP_FAILURE;
 	}
 	close(*in_fd);

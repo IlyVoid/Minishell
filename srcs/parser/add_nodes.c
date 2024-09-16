@@ -6,34 +6,35 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:44:42 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/11 10:44:44 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/16 09:48:47 by brsantsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int add_or_and_pipe_tree(t_node_info *info, t_node **root, int *hd_num,
-						 t_minishell *minish)
+int	add_or_and_pipe_tree(t_node_info *info, t_node **root, int *hd_num,
+		t_minishell *minish)
 {
 	int	status;
 
 	status = create_tree(info->left_str, &((*root)->left), hd_num, minish);
 	if (status == 0)
-		status = create_tree(info->right_str, &((*root)->right), hd_num, minish);
+		status = create_tree(info->right_str,
+				&((*root)->right), hd_num, minish);
 	return (status);
 }
 
-int add_br(t_node_info *info, t_node **root, int *hd_num, t_minishell *minish)
+int	add_br(t_node_info *info, t_node **root, int *hd_num, t_minishell *minish)
 {
-	int status;
+	int	status;
 
 	status = create_tree(info->left_str, &((*root)->left), hd_num, minish);
 	return (status);
 }
 
-int add_cmd(t_node_info *info, t_node **root, int *hd_num, t_minishell *minish)
+int	add_cmd(t_node_info *info, t_node **root, int *hd_num, t_minishell *minish)
 {
-	int 	status;
+	int		status;
 	t_redir	*redir_node;
 	char	**redirs;
 
@@ -53,11 +54,12 @@ int add_cmd(t_node_info *info, t_node **root, int *hd_num, t_minishell *minish)
 	return (0);
 }
 
-int add_cmd_br(t_node_info *info, t_node **root, int *hd_num, t_minishell *minish)
+int	add_cmd_br(t_node_info *info, t_node **root, int *hd_num,
+		t_minishell *minish)
 {
-	int 	status;
+	int		status;
 	t_redir	*redir_node;
-	char 	**redirs;
+	char	**redirs;
 
 	status = prepare_redirects(info->left_str, hd_num, &redirs, minish);
 	if (status != SUCCESS)

@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/14 11:30:30 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/16 11:23:54 by brsantsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,38 +59,37 @@ int			or_traverser(t_node **root, t_minishell *minish);
 int			wait_childs(pid_t *pids, int num);
 
 /* EXECUTOR */
-
-
 /* LEXER */
-int 		lexer(t_node_info **node, char *str, int type, int i);
-int 		cmd_block(t_node_info **node, char *str, int type);
-int 		cmd_br_block(t_node_info **node, char *str, int type);
+int			lexer(t_node_info **node, char *str, int type, int i);
+int			cmd_block(t_node_info **node, char *str, int type);
+int			cmd_br_block(t_node_info **node, char *str, int type);
 t_bool		is_odd(int n);
-int 		check_round_br(char *str, int point);
+int			check_round_br(char *str, int point);
 int			check_quote(char *str, int point, int symbol);
-int 		first_char_is_br_space_excluded(char *str);
+int			first_char_is_br_space_excluded(char *str);
 int			last_char_is_br_space_excluded(char *str);
 void		check_inside_quotes(char *str, int *i, int *quote_type);
 int			br_search(char *str);
 
 /* PARSER */
-int			create_tree(char *str, t_node **root, int *hd_num, t_minishell *minish);
+int			create_tree(char *str, t_node **root, int *hd_num,
+				t_minishell *minish);
 t_bool		create_node(t_node_info *info, t_node **root);
-int 		add_or_and_pipe_tree(t_node_info *info, t_node **root, int *hd_num,
-								 t_minishell *minish);
-int 		add_br(t_node_info *info, t_node **root, int *hd_num,
-				   t_minishell *minish);
-int 		add_cmd(t_node_info *info, t_node **root, int *hd_num,
-					t_minishell *minish);
-int 		add_cmd_br(t_node_info *info, t_node **root, int *hd_num,
-					   t_minishell *minish);
-t_and		*init_t_and();
-t_or		*init_t_or();
-t_pipe		*init_t_pipe();
-t_bracket	*init_t_br();
-t_cmd		*init_t_cmd();
-t_cmd_br	*init_t_cmd_br();
-t_redir		*init_t_redir();
+int			add_or_and_pipe_tree(t_node_info *info, t_node **root, int *hd_num,
+				t_minishell *minish);
+int			add_br(t_node_info *info, t_node **root, int *hd_num,
+				t_minishell *minish);
+int			add_cmd(t_node_info *info, t_node **root, int *hd_num,
+				t_minishell *minish);
+int			add_cmd_br(t_node_info *info, t_node **root, int *hd_num,
+				t_minishell *minish);
+t_and		*init_t_and(void);
+t_or		*init_t_or(void);
+t_pipe		*init_t_pipe(void);
+t_bracket	*init_t_br(void);
+t_cmd		*init_t_cmd(void);
+t_cmd_br	*init_t_cmd_br(void);
+t_redir		*init_t_redir(void);
 void		free_tree(t_node **root);
 
 /* UTILS */

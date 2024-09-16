@@ -6,13 +6,13 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:45:06 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/11 10:45:08 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/16 09:50:34 by brsantsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-t_cmd_br	*init_t_cmd_br()
+t_cmd_br	*init_t_cmd_br(void)
 {
 	t_cmd_br	*node;
 
@@ -23,7 +23,7 @@ t_cmd_br	*init_t_cmd_br()
 	return (node);
 }
 
-t_redir	*init_t_redir()
+t_redir	*init_t_redir(void)
 {
 	t_redir	*node;
 

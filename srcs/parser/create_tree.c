@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:44:52 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/11 10:44:55 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/16 09:51:22 by brsantsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 t_bool	get_type(char *str, t_node_info **info);
 
-int create_tree(char *str, t_node **root, int *hd_num, t_minishell *minish)
+int	create_tree(char *str, t_node **root, int *hd_num, t_minishell *minish)
 {
 	t_node_info	*info;
 	t_bool		status;
-	int 		type;
+	int			type;
 
 	status = get_type(str, &info);
 	if (status == false)
@@ -45,7 +45,7 @@ int create_tree(char *str, t_node **root, int *hd_num, t_minishell *minish)
 
 t_bool	get_type(char *str, t_node_info **info)
 {
-	int status;
+	int	status;
 
 	status = lexer(info, str, T_AND, ft_strlen(str) - 1);
 	return (status);

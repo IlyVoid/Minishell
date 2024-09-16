@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:47:15 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/14 10:22:32 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/16 09:54:55 by brsantsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	check_inside_quotes(char *str, int *i, int *quote_type)
 		*quote_type = 0;
 	else if (str[*i] == S_QUOTE && *quote_type == 0)
 		*quote_type = S_QUOTE;
-	else  if (str[*i] == D_QUOTE && *quote_type == D_QUOTE)
+	else if (str[*i] == D_QUOTE && *quote_type == D_QUOTE)
 		*quote_type = 0;
 	else if (str[*i] == D_QUOTE && *quote_type == 0)
 		*quote_type = D_QUOTE;

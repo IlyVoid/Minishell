@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:44:19 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/11 10:44:22 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/16 09:54:20 by brsantsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ t_bool	is_odd(int n)
 	return (n % 2);
 }
 
-int check_round_br(char *str, int point)
+int	check_round_br(char *str, int point)
 {
-	int i;
-	int key;
-	int type_of_quote;
+	int	i;
+	int	key;
+	int	type_of_quote;
 
 	i = (int)ft_strlen(str) - 1;
 	key = 0;
@@ -45,8 +45,8 @@ int check_round_br(char *str, int point)
 
 int	check_quote(char *str, int point, int symbol)
 {
-	int i;
-	int pair[2];
+	int	i;
+	int	pair[2];
 
 	i = (int) ft_strlen(str) - 1;
 	pair[0] = 0;
@@ -63,9 +63,9 @@ int	check_quote(char *str, int point, int symbol)
 	return (is_odd(pair[0]) == false && is_odd(pair[1]) == false);
 }
 
-int first_char_is_br_space_excluded(char *str)
+int	first_char_is_br_space_excluded(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i] != NULL_TERM)

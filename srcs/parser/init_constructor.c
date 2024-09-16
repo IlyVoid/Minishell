@@ -6,13 +6,13 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:45:01 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/11 10:45:05 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/16 09:50:03 by brsantsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-t_and	*init_t_and()
+t_and	*init_t_and(void)
 {
 	t_and	*node;
 
@@ -23,7 +23,7 @@ t_and	*init_t_and()
 	return (node);
 }
 
-t_or	*init_t_or()
+t_or	*init_t_or(void)
 {
 	t_or	*node;
 
@@ -34,7 +34,7 @@ t_or	*init_t_or()
 	return (node);
 }
 
-t_pipe	*init_t_pipe()
+t_pipe	*init_t_pipe(void)
 {
 	t_pipe	*node;
 
@@ -45,7 +45,7 @@ t_pipe	*init_t_pipe()
 	return (node);
 }
 
-t_bracket	*init_t_br()
+t_bracket	*init_t_br(void)
 {
 	t_bracket	*node;
 
@@ -56,7 +56,7 @@ t_bracket	*init_t_br()
 	return (node);
 }
 
-t_cmd	*init_t_cmd()
+t_cmd	*init_t_cmd(void)
 {
 	t_cmd	*node;
 

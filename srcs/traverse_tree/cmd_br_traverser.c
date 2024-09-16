@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cmd_br_traverser.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brsantsc <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/16 09:57:15 by brsantsc          #+#    #+#             */
+/*   Updated: 2024/09/16 09:57:50 by brsantsc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/minishell.h"
 
 int	cmd_br_traverser(t_node **root, t_minishell *minish)
 {
-	int status;
-	pid_t pid;
-	t_node *node;
+	int		status;
+	pid_t	pid;
+	t_node	*node;
 
 	if (minish->is_parent == false)
 		signal_interceptor(DEFAULT);
