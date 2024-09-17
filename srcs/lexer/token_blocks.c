@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   token_blocks.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brsantsc <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/17 10:02:15 by brsantsc          #+#    #+#             */
+/*   Updated: 2024/09/17 10:03:31 by brsantsc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/minishell.h"
 
 int	and_if_condition_block(t_node_info **node, char *str, int type, int i)
@@ -23,7 +35,7 @@ int	and_if_condition_block(t_node_info **node, char *str, int type, int i)
 	return (0);
 }
 
-int pipe_block(t_node_info **node, char *str, int type, int i)
+int	pipe_block(t_node_info **node, char *str, int type, int i)
 {
 	if (str[i] == PIPE)
 	{
@@ -37,7 +49,7 @@ int pipe_block(t_node_info **node, char *str, int type, int i)
 	return (0);
 }
 
-int br_block(t_node_info **node, char *str, int type)
+int	br_block(t_node_info **node, char *str, int type)
 {
 	if (first_char_is_br_space_excluded(str)
 		&& last_char_is_br_space_excluded(str))

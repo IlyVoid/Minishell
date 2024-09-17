@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tokenise.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brsantsc <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/17 09:49:07 by brsantsc          #+#    #+#             */
+/*   Updated: 2024/09/17 10:01:45 by brsantsc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/minishell.h"
 
-int put_info_cmd_node(t_node_info **info, char *str, int type)
+int	put_info_cmd_node(t_node_info **info, char *str, int type)
 {
 	t_node_info	*node_info;
-	char 		*redir;
-	int 		status;
+	char		*redir;
+	int			status;
 
 	node_info = ft_calloc(1, sizeof(t_node_info));
 	if (!node_info)
@@ -22,7 +34,8 @@ int put_info_cmd_node(t_node_info **info, char *str, int type)
 	return (1);
 }
 
-int put_info_and_or_pipe_node(t_node_info **info, char *str, int point, int type)
+int	put_info_and_or_pipe_node(t_node_info **info,
+		char *str, int point, int type)
 {
 	t_node_info	*node_info;
 
@@ -43,11 +56,11 @@ int put_info_and_or_pipe_node(t_node_info **info, char *str, int point, int type
 	return (1);
 }
 
-int put_info_bracket_node(t_node_info **info, char *str, int type)
+int	put_info_bracket_node(t_node_info **info, char *str, int type)
 {
 	t_node_info	*node_info;
-	char 		*first;
-	char 		*last;
+	char		*first;
+	char		*last;
 
 	node_info = ft_calloc(1, sizeof(t_node_info));
 	if (!node_info)
@@ -63,13 +76,13 @@ int put_info_bracket_node(t_node_info **info, char *str, int type)
 	return (1);
 }
 
-int put_info_cmd_br_node(t_node_info **info, char *str, int type)
+int	put_info_cmd_br_node(t_node_info **info, char *str, int type)
 {
 	t_node_info	*node_info;
-	char 		*first;
-	char 		*left;
-	char 		*redir;
-	int 		i;
+	char		*first;
+	char		*left;
+	char		*redir;
+	int			i;
 
 	i = 0;
 	node_info = ft_calloc(1, sizeof(t_node_info));
@@ -90,7 +103,7 @@ int put_info_cmd_br_node(t_node_info **info, char *str, int type)
 	return (1);
 }
 
-int put_simple_cmd_node(t_node_info **info, char *str, int type)
+int	put_simple_cmd_node(t_node_info **info, char *str, int type)
 {
 	t_node_info	*node_info;
 

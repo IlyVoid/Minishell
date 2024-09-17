@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/16 11:23:54 by brsantsc         ###   ########.fr       */
+/*   Updated: 2024/09/17 10:07:34 by brsantsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,9 @@ int			lexer(t_node_info **node, char *str, int type, int i);
 int			cmd_block(t_node_info **node, char *str, int type);
 int			cmd_br_block(t_node_info **node, char *str, int type);
 int			and_if_condition_block(t_node_info **node, char *str, int type,
-									  int i);
-int 		pipe_block(t_node_info **node, char *str, int type, int i);
-int 		br_block(t_node_info **node, char *str, int type);
+				int i);
+int			pipe_block(t_node_info **node, char *str, int type, int i);
+int			br_block(t_node_info **node, char *str, int type);
 t_bool		is_odd(int n);
 int			check_round_br(char *str, int point);
 int			check_quote(char *str, int point, int symbol);
@@ -75,13 +75,13 @@ int			first_char_is_br_space_excluded(char *str);
 int			last_char_is_br_space_excluded(char *str);
 void		check_inside_quotes(char *str, int *i, int *quote_type);
 int			br_search(char *str);
-int 		redir_search(char *str);
-int 		put_info_cmd_node(t_node_info **info, char *str, int type);
-int 		put_info_and_or_pipe_node(t_node_info **info, char *str, int point,
-									  int type);
-int 		put_info_bracket_node(t_node_info **info, char *str, int type);
-int 		put_info_cmd_br_node(t_node_info **info, char *str, int type);
-int 		put_simple_cmd_node(t_node_info **info, char *str, int type);
+int			redir_search(char *str);
+int			put_info_cmd_node(t_node_info **info, char *str, int type);
+int			put_info_and_or_pipe_node(t_node_info **info, char *str, int point,
+				int type);
+int			put_info_bracket_node(t_node_info **info, char *str, int type);
+int			put_info_cmd_br_node(t_node_info **info, char *str, int type);
+int			put_simple_cmd_node(t_node_info **info, char *str, int type);
 char		*part_cmd(char *str, int *i, int type_of_quote);
 int			mod_cmd_str_no_br(char *str, char **redir, int i, int j);
 

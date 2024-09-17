@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/14 10:23:56 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/14 11:30:24 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/17 10:04:52 by brsantsc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ int	br_search(char *str)
 	return (key > 0);
 }
 
-int redir_search(char *str)
+int	redir_search(char *str)
 {
-	int i;
-	int type_of_quote;
-	int key;
+	int	i;
+	int	type_of_quote;
+	int	key;
 
 	i = 0;
 	type_of_quote = 0;

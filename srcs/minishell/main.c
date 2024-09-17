@@ -1,11 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brsantsc <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/17 09:28:37 by brsantsc          #+#    #+#             */
+/*   Updated: 2024/09/17 09:36:48 by brsantsc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/minishell.h"
 
 volatile sig_atomic_t	g_sgnl;
 
-int main()
+int	main(void)
 {
 	t_minishell	*minish;
-	int 		prev_status;
+	int			prev_status;
 
 	signal_interceptor(IGNORE);
 	toggler(IMPLICIT);

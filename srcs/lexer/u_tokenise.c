@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   u_tokenise.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: brsantsc <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/17 09:43:40 by brsantsc          #+#    #+#             */
+/*   Updated: 2024/09/17 09:46:07 by brsantsc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/minishell.h"
 
 char	*part_cmd(char *str, int *i, int type_of_quote)
@@ -35,7 +47,7 @@ static void	mod_util_str(char *str, char *redir, int *i, int *j)
 
 static void	redir_fill(char *str, char **redir, int *i, int *j)
 {
-	int q_flag;
+	int	q_flag;
 
 	q_flag = 0;
 	while ((str[*i] == REDIR_L || str[*i] == REDIR_R || str[*i] == SPCE
