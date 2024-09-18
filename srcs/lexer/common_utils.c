@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:44:19 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/16 09:54:20 by brsantsc         ###   ########.fr       */
+/*   Updated: 2024/09/18 13:57:57 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_round_br(char *str, int point)
 	type_of_quote = 0;
 	while (i >= point)
 	{
-		check_inside_quote(str, &i, &type_of_quote);
+		check_inside_quotes(str, &i, &type_of_quote);
 		if (!type_of_quote)
 		{
 			if (str[i] == O_ROUND)
