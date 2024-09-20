@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/20 15:44:59 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/20 16:53:51 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ int			wait_childs(pid_t *pids, int num);
 
 /* EXECUTOR */
 int			cmd_run(char **arr, t_minishell *minish, int cmd_type);
-
+void		run_echo(char **arr, int i, int j, int nl_flag);
+void		skip_char(char *str, int *i, int symb);
 
 /* LEXER */
 int			lexer(t_node_info **node, char *str, int type, int i);

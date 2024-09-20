@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 15:51:00 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/20 16:13:22 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/20 17:03:34 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,20 @@ void	run_echo(char **arr, int i, int j, int nl_flag)
 		j = 0;
 		if (arr[i][j++] == DASH)
 		{
-			skip_char
+			skip_char(arr[i], &j, N_LOWER);
+			if (arr[i][j] == NULL_TERM && j > 1)
+				nl_flag = 1;
+			else
+			{
+				write_echo(arr + i, nl_flag, 0);
+				return ;
+			}
 		}
+		else
+		{
+			write_echo(arr + i, nl_flag, 0);
+			return ;
+		}
+		i++;
 	}
 }
