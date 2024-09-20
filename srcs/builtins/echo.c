@@ -18,7 +18,7 @@ static void	write_echo(char **arr, int flag, int i)
 	{
 		while (arr[i])
 		{
-			ft_purstr_fd(arr[i], STDOUT_FILENO);
+			ft_putstr_fd(arr[i], STDOUT_FILENO);
 			if (arr[i + 1])
 				ft_putchar_fd(SPCE, STDOUT_FILENO);
 			i++;
