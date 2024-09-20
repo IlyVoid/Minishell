@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/17 10:07:34 by brsantsc         ###   ########.fr       */
+/*   Updated: 2024/09/20 15:44:59 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ int			or_traverser(t_node **root, t_minishell *minish);
 int			wait_childs(pid_t *pids, int num);
 
 /* EXECUTOR */
+int			cmd_run(char **arr, t_minishell *minish, int cmd_type);
+
 
 /* LEXER */
 int			lexer(t_node_info **node, char *str, int type, int i);
