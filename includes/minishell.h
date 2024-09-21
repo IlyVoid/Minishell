@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/20 16:53:51 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/21 11:06:12 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ int			wait_childs(pid_t *pids, int num);
 /* EXECUTOR */
 int			cmd_run(char **arr, t_minishell *minish, int cmd_type);
 void		run_echo(char **arr, int i, int j, int nl_flag);
+void		run_pwd(char **arr, t_minishell *minish);
+void		run_env(char **arr, t_minishell *minish);
 void		skip_char(char *str, int *i, int symb);
 
 /* LEXER */
