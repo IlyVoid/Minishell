@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/22 16:24:31 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/22 18:22:05 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int			or_traverser(t_node **root, t_minishell *minish);
 int			wait_childs(pid_t *pids, int num);
 
 /* EXECUTOR */
+void		run_cd(char **arr, t_minishell *minish, int status);
 int			cmd_run(char **arr, t_minishell *minish, int cmd_type);
 void		run_echo(char **arr, int i, int j, int nl_flag);
 void		run_pwd(char **arr, t_minishell *minish);
