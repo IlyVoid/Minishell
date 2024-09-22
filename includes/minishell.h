@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/21 11:06:12 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/22 16:24:31 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,21 @@ int			cmd_run(char **arr, t_minishell *minish, int cmd_type);
 void		run_echo(char **arr, int i, int j, int nl_flag);
 void		run_pwd(char **arr, t_minishell *minish);
 void		run_env(char **arr, t_minishell *minish);
+void		run_exit(char **arr, t_minishell *minish, long nbr);
+void		run_unset(char **arr, t_minishell *minish);
 void		skip_char(char *str, int *i, int symb);
+void		end_process(t_minishell *minish);
+void		exec_unset(char ***penv, int pos, int i);
+int			env_var(char **penv, char *var, int i, int j);
+t_bool		ft_isenv(char c, int *j);
+int			arg_var(char **arr, char *var, int i, int j);
+void		struct_update_pwd_and_full_oldpwd(char *new_pwd,
+										t_minishell *minish);
+void		cd_precheck(char **arr, t_minishell *minish);
+void		update_env_pwd(t_minishell *minish, int pos,
+							char *cwd, char *temp);
+void		update_env_oldpwd(t_minishell *minish);
+
 
 /* LEXER */
 int			lexer(t_node_info **node, char *str, int type, int i);
