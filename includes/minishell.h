@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/22 18:22:05 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/23 12:12:41 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,17 @@ void		cd_precheck(char **arr, t_minishell *minish);
 void		update_env_pwd(t_minishell *minish, int pos,
 							char *cwd, char *temp);
 void		update_env_oldpwd(t_minishell *minish);
-
+void		create_ops_array(char **arr, char **penv, int *ops);
+int			check_ops(int *ops, int *i, int *j, int type);
+int			add_to_env_list_env_new(char **penv, char ***result,
+									int *i, int *len);
+int			add_to_env_list(char ***env_new, char **arr,
+							t_minishell *minish, int *ops);
+int			edit_env_list(char ***env_new, char **arr, int *ops,
+						t_minishell *minish);
+int			check_for_errors(char **arr, int *ops);
+int			exec_other(char **arr, int *ops);
+void		run_export(char **arr, t_minishell *minish);
 
 /* LEXER */
 int			lexer(t_node_info **node, char *str, int type, int i);
