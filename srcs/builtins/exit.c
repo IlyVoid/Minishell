@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 14:37:22 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/22 15:24:26 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:35:45 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	run_exit(char **arr, t_minishell *minish, long nbr)
 	if (ft_arrlen((void **)arr) > 1)
 	{
 		nbr = ft_atol(arr[0]);
-		if ((zero_check(arr[0]) && nbr == 0) || check_non_digit(arr[0]))
+		if ((zero_check(arr[0]) && nbr == 0) || check_non_digits(arr[0]))
 			exit_nbr_format_arg_err(minish, arr[0]);
 		else
 			exit_count_of_arg_err(minish);
@@ -62,7 +62,7 @@ void	run_exit(char **arr, t_minishell *minish, long nbr)
 	else
 	{
 		nbr = ft_atol(arr[0]);
-		if ((zero_check(arr[0]) && nbr == 0) || check_non_digit(arr[0]))
+		if ((zero_check(arr[0]) && nbr == 0) || check_non_digits(arr[0]))
 			exit_nbr_format_arg_err(minish, arr[0]);
 		else
 			minish->exit_status = (unsigned char)nbr;

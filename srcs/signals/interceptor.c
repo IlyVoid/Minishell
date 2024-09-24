@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 08:24:38 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/09 16:57:09 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:43:28 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,32 @@ static void	sigint_interactive(int sig)
 
 // init interceptor
 static void	init_interceptor(void (*first_handle)(int),
-				void (*second_hand)(int));
+				void (*second_handle)(int))
+{
+	struct sigaction	sa;
+	struct sigaction	sq;
+
+	ft_memset(&sa, 0, sizeof(sa));
+	ft_memset(&sq, 0, sizeof(sq));
+	sa.sa_handler = first_handle;
+	sq.sa_handler = second_handle;
+	sigemptyset(&sa.sa_mask);
+	sigemptyset(&sq.sa_mask);
+	sa.sa_flags = SA_RESTART;
+	sq.sa_flags = SA_RESTART;
+	sigaction(SIGINT, &sa, NULL);
+	sigaction(SIGQUIT, &sq, NULL);
+}
 
 // finished signal interceptor
-void	signal_interceptor(int mode);
+void	signal_interceptor(int mode)
+{
+	if (mode == DEFAULT)
+		init_interceptor(SIG_DFL, SIG_DFL);
+	else if (mode == INTERACTIVE)
+		init_interceptor(sigint_interactive, SIG_IGN);
+	else if (mode == HEREDOC)
+		init_interceptor(SIG_DFL, SIG_IGN);
+	else if (mode == IGNORE)
+		init_interceptor(SIG_IGN, SIG_IGN);
+}

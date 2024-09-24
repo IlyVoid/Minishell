@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 11:47:35 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/23 12:12:23 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:34:16 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,13 @@ static void	export_without_args(t_minishell *minish, int i, int j)
 	if (minish->is_oldpwd_unset == false
 		&& env_var(minish->env, "OLDPWD=", -1, 7) == -1)
 	{
-		if (var_init_when_no_var_exists(&minish->env, 1, "OLDPWD=") != 0)
+		if (init_var_if_none_exist(&minish->env, 1, "OLDPWD=") != 0)
 		{
 			minish->exit_status = MALLOC_ERR;
 			return ;
 		}
 	}
-	penv_sorted = sort_string_arr(minish->env, ft_arrlen((void **)minish->env));
+	penv_sorted = sort_str_arr(minish->env, ft_arrlen((void **)minish->env));
 	if (!penv_sorted)
 	{
 		minish->exit_status = MALLOC_ERR;

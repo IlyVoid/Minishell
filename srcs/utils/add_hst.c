@@ -6,12 +6,11 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 22:28:19 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/23 22:46:44 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:58:37 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
-#include <stdlib.h>
 
 void	add_to_hst_lst(char *cmd, char *cmdline, t_minishell **minishell);
 void	err_hst(char *cmd);
@@ -23,7 +22,7 @@ void	add_bash_hst(char *cmdline, t_minishell **minishell, int mode)
 
 	minish = *minishell;
 	ft_remove_nl(cmdline);
-	add_hst(cmdline);
+	add_history(cmdline)
 	if (minish->history_path == NULL)
 		return ;
 	cmd = ft_strdup(cmdline);

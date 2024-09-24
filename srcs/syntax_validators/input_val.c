@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bracket_traverser.c                                :+:      :+:    :+:   */
+/*   input_val.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/31 19:32:56 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/24 16:44:25 by quvan-de         ###   ########.fr       */
+/*   Created: 2024/09/24 15:39:36 by quvan-de          #+#    #+#             */
+/*   Updated: 2024/09/24 15:43:23 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int	bracket_traverser(t_node **root, t_minishell *minish)
+int	input_val(char *str)
 {
-	int		status;
-	pid_t	pid;
-	t_node	*node;
+	char	*next_token;
+	t_bool	status;
 
-	if (minish->is_parent == false)
-		signal_interceptor(DEFAULT);
-	pid = fork();
-	if (pid == -1)
-		return (FORK_FAILURE);
-	if (pid == CHILD)
+	status = true;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == NULL_TERM)
+		return (SUCCESS);
+	next_token = and_or_val(str, &status);
+	if (*next_token != NULL_TERM || status == false)
 	{
-		signal_interceptor(DEFAULT);
-		minish->is_parent = false;
-		node = *root;
-		status = tree_traverser(&(node->left), minish); // in progress
-		exit(status);
+		syntax_err_msg(next_token);
+		return (SYNTAX_ERROR);
 	}
-	else
-		status = wait_childs(&pid, 1);
-	return (status);
+	return (SUCCESS);
 }

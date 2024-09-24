@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 16:42:01 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/16 09:56:09 by brsantsc         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:45:41 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	tree_traverser(t_node **root, t_minishell *minish)
 		status = cmd_traverser(((t_cmd *)*root)->cmd,
 				((t_redir *)((t_cmd *)*root)->redir)->redirs,
 				minish);
-	tree_free(root);
+	free_tree(root);
 	return (status);
 }
 

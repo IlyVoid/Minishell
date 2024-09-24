@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   redirection_validator.c                            :+:      :+:    :+:   */
+/*   pipe_val.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/27 12:13:49 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/28 09:31:03 by quvan-de         ###   ########.fr       */
+/*   Created: 2024/09/24 15:09:15 by quvan-de          #+#    #+#             */
+/*   Updated: 2024/09/24 15:14:04 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-char	*validate_redirect(char *str, t_bool *status)
+char	*pipe_val(char *str, t_bool *status)
 {
 	char	*next_token;
 
-	if (ft_strncmp(">>", str, 2) == 0)
-		str += 2;
-	else if (ft_strncmp("<<", str, 2) == 0)
-		str += 2;
-	else if (ft_strncmp(">", str, 1) == 0)
-		str += 1;
-	else if (ft_strncmp("<", str, 1) == 0)
-		str += 1;
-	else
-		return (str);
-	if (ft_isspace(*str))
+	while (ft_isspace(*str))
 		str++;
-	next_token = validate_word(str, status);
+	next_token = cmd_val(str, status);
 	if (next_token == str)
 		*status = false;
-	if (*status == false || *next_token == C_ROUND)
+	if (*status == false)
 		return (next_token);
-	while (ft_isspace(*next_token))
+	else if (*next_token == PIPE && next_token[1] != PIPE)
+	{
 		next_token++;
-	next_token = validate_redirect(next_token, status);
+		if (string_is_empty(next_token) == true)
+		{
+			*status = false;
+			return (next_token);
+		}
+		next_token = pipe_val(next_token, status);
+	}
 	return (next_token);
 }

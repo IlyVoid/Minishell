@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 16:42:07 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/09 16:44:32 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:45:26 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	second_traversal(t_node **node, t_minishell *minish, int pipefd[2],
 			exit(DUP_FAILURE);
 		}
 		close(pipefd[READ]);
-		status = tree_traverser(node, ms);
+		status = tree_traverser(node, minish);
 		exit(status);
 	}
 	else

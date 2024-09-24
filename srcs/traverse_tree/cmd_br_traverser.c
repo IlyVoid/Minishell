@@ -6,7 +6,7 @@
 /*   By: brsantsc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/16 09:57:15 by brsantsc          #+#    #+#             */
-/*   Updated: 2024/09/16 09:57:50 by brsantsc         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:44:41 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	cmd_br_traverser(t_node **root, t_minishell *minish)
 		node = *root;
 		status = apply_redirects(((t_redir *)(node->left))->redirs, minish);
 		if (status == 0)
-			status = tree_traversal(&(node->right), minish);
+			status = tree_traverser(&(node->right), minish);
 		exit(status);
 	}
 	else

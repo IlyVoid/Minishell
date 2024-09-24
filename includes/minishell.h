@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/24 01:58:42 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:38:58 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,15 @@ typedef struct s_minishell
 	bool	is_parent;
 	bool	is_oldpwd_unset;
 }			t_minishell;
+
+/* MINISHELL */
+int			fetch_cmdline(char **cmdline, t_minishell **minish);
+void		check_sig(t_minishell **minish);
+void		run_minish(t_minishell **minish);
+void		ft_readline(char **cmdline, char *prompt);
+void		kill_minish(t_minishell **minish, int status);
+void		init_minish(t_minishell **minish);
+void		free_minish(t_minishell *minish);
 
 /* REDIRECTS */
 int			apply_redirects(char **redirs, t_minishell *minish);
@@ -137,6 +146,10 @@ t_cmd_br	*init_t_cmd_br(void);
 t_redir		*init_t_redir(void);
 void		free_tree(t_node **root);
 
+/* RL */
+void		rl_clear_history(void);
+void		rl_replace_line(const char *text, int clear_undo);
+
 /* UTILS */
 void		remove_quotes(char *str, int i, int j);
 void		remove_quotes_arr(char **arr, int i);
@@ -155,7 +168,7 @@ void		err_hst(char *cmd);
 void		init_hst(t_minishell **minishell);
 void		read_hstfile(t_minishell **minish);
 int			prompt_builder(char *dir_name, char **prompt, char *exit_status);
-int			recieve_prompt(char **prompt, int exit_status);
+int			fetch_prompt(char **prompt, int exit_status);
 int			init_pwd(char ***penv, char **pwd);
 char		**cpy_env(char **penv);
 void		save_hst_file(t_minishell *minish);
@@ -170,8 +183,13 @@ void		toggler(int mode);
 void		signal_interceptor(int mode);
 
 /* VALIDATE SYNTAX */
-char		*validate_redirect(char *str, t_bool *status);
-char		*validate_word(char *str, t_bool *status);
+char		*pipe_val(char *str, t_bool *status);
+char		*cmd_val(char *str, t_bool *status);
+char		*simple_cmd_val(char *str, t_bool *status);
+char		*redir_val(char *str, t_bool *status);
+char		*word_val(char *str, t_bool *status);
+char		*and_or_val(char *str, t_bool *status);
 t_bool		string_is_empty(char *str);
+int			input_val(char *str);
 
 #endif

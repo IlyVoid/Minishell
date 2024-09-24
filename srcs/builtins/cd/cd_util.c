@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 16:11:48 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/22 16:24:36 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:33:16 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ static int	oldpwd_init_when_no_oldpwd_exists(int i, t_minishell *minish)
 	char	**new_env;
 
 	len = ft_arrlen((void **)(minish->env));
-	if (add_to_env_list_new_env((minish->env), &new_env, &i, &len)
+	if (add_to_env_list_env_new((minish->env), &new_env, &i, &len)
 		== MALLOC_ERR)
 		return (MALLOC_ERR);
 	new_env[len] = ft_strjoin("OLDPWD=", minish->pwd);

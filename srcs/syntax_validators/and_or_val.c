@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bracket_traverser.c                                :+:      :+:    :+:   */
+/*   and_or_val.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/31 19:32:56 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/24 16:44:25 by quvan-de         ###   ########.fr       */
+/*   Created: 2024/09/24 14:59:43 by quvan-de          #+#    #+#             */
+/*   Updated: 2024/09/24 15:08:28 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int	bracket_traverser(t_node **root, t_minishell *minish)
+char	*and_or_val(char *str, t_bool *status)
 {
-	int		status;
-	pid_t	pid;
-	t_node	*node;
+	char	*next_token;
 
-	if (minish->is_parent == false)
-		signal_interceptor(DEFAULT);
-	pid = fork();
-	if (pid == -1)
-		return (FORK_FAILURE);
-	if (pid == CHILD)
+	while (ft_isspace(*str))
+		str++;
+	next_token = pipe_val(str, status);
+	if (*status == false)
+		return (next_token);
+	if ((ft_strncmp("&&", next_token, 2) == 0
+		|| ft_strncmp("||", next_token, 2) == 0))
 	{
-		signal_interceptor(DEFAULT);
-		minish->is_parent = false;
-		node = *root;
-		status = tree_traverser(&(node->left), minish); // in progress
-		exit(status);
+		next_token += 2;
+		if (string_is_empty(next_token) == true)
+		{
+			*status = false;
+			return (next_token);
+		}
+		next_token = and_or_val(next_token, status);
 	}
-	else
-		status = wait_childs(&pid, 1);
-	return (status);
+	return (next_token);
 }

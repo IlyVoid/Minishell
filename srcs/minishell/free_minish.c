@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   free_minish.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brsantsc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 09:28:37 by brsantsc          #+#    #+#             */
-/*   Updated: 2024/09/24 16:37:39 by quvan-de         ###   ########.fr       */
+/*   Created: 2024/08/26 14:37:07 by brsantsc          #+#    #+#             */
+/*   Updated: 2024/09/24 16:30:04 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-volatile sig_atomic_t	g_sgnl;
-
-int	main(void)
+void	free_minish(t_minishell *minish)
 {
-	t_minishell	*minish;
-	int			prev_status;
-
-	signal_interceptor(IGNORE);
-	toggler(IMPLICIT);
-	printf("\033[2J\033[H");
-	init_minish(&minish);
-	run_minish(&minish);
-	prev_status = minish->exit_status;
-	rl_clear_history();
-	save_hst_file(minish);
-	free_minish(minish);
-	minish = NULL;
-	return (prev_status);
+	if (!minish)
+		return ;
+	if (minish->env)
+		ft_free_2d_array(minish->env);
+	if (minish->pwd)
+		free(minish->pwd);
+	if (minish->oldpwd)
+		free(minish->oldpwd);
+	if (minish->history_path)
+		free(minish->history_path);
+	if (minish->history)
+		ft_lstclear(&(minish->history), free);
+	if (minish->root)
+		free_tree(&(minish->root));
+	free(minish);
 }

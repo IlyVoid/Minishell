@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 23:11:57 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/24 01:01:01 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:38:41 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	prompt_builder(char *dir_name, char **prompt, char *exit_status);
 
-int	recieve_prompt(char **prompt, int exit_status)
+int	fetch_prompt(char **prompt, int exit_status)
 {
 	char	*cwd;
 	char	*dir_name;

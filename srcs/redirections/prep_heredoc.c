@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 11:15:25 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/26 13:48:23 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/24 16:41:15 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	prepare_heredoc(char **limiter, char *hd_name, t_minishell *minish)
 	}
 	free(*limiter);
 	*limiter = hd_name;
-	status = wait_childrem(&pid, 1);
+	status = wait_childs(&pid, 1);
 	return (status);
 }
 
@@ -112,10 +112,8 @@ void	remove_hd_duplicates(char ***redirs, char *hd_name, char hd_counter)
 }
 
 // yet to make exp_dollar_sign() (adaptations possible,
-deffo gotta look for a perm name)
-
-	static void
-	handle_heredoc_line(int fd, char *line, t_minishell *minish, char *limiter)
+//deffo gotta look for a perm name)
+static void	handle_heredoc_line(int fd, char *line, t_minishell *minish, char *limiter)
 {
 	int	status;
 
