@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/23 12:12:41 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/24 01:58:42 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int			or_traverser(t_node **root, t_minishell *minish);
 int			wait_childs(pid_t *pids, int num);
 
 /* EXECUTOR */
+int			cmd_run(char **arr, t_minishell *minish, int cmd_type);
 void		run_cd(char **arr, t_minishell *minish, int status);
 int			cmd_run(char **arr, t_minishell *minish, int cmd_type);
 void		run_echo(char **arr, int i, int j, int nl_flag);
@@ -143,10 +144,26 @@ void		syntax_err_msg(char *str);
 void		print_err_msg(char *cmd, char *msg);
 void		perror_err_msg(char *cmd, char *arg);
 void		arg_err_msg(char *cmd, char *arg, char *msg);
+void		shlvl_warn_msg(int number);
 void		handle_ctl_d_error(char *msg);
 int			handle_ctl_d(char *prompt);
 char		**wrapper_split_quotes(char *str);
 int			build_array_before_wc(char ***arr, int i, int k, int j);
+void		add_bash_hst(char *cmdline, t_minishell **minishell, int mode);
+void		add_to_hst_lst(char *cmd, char *cmdline, t_minishell **minishell);
+void		err_hst(char *cmd);
+void		init_hst(t_minishell **minishell);
+void		read_hstfile(t_minishell **minish);
+int			prompt_builder(char *dir_name, char **prompt, char *exit_status);
+int			recieve_prompt(char **prompt, int exit_status);
+int			init_pwd(char ***penv, char **pwd);
+char		**cpy_env(char **penv);
+void		save_hst_file(t_minishell *minish);
+void		lst_write(void *str);
+int			check_non_digits(char *str);
+int			init_var_if_none_exist(char ***penv, int i, char *var);
+int			init_shlvl(char ***penv);
+char		**sort_str_arr(char **av, int size);
 
 /* SIGNALS */
 void		toggler(int mode);

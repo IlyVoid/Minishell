@@ -6,7 +6,7 @@
 #    By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/22 15:11:24 by quvan-de          #+#    #+#              #
-#    Updated: 2024/09/22 15:11:30 by quvan-de         ###   ########.fr        #
+#    Updated: 2024/09/23 22:45:33 by quvan-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,8 @@ FTSTR		=	ft_split ft_strchr ft_strdup ft_striteri ft_strjoin \
 
 FTLST_DIR	=	lists/
 FTLST		=	ft_lstadd_back ft_lstadd_front ft_lstclear ft_lstdelone \
-				ft_lstiter ft_lstlast ft_lstmap ft_lstnew ft_lstsize
+				ft_lstiter ft_lstlast ft_lstmap ft_lstnew ft_lstsize \
+				ft_lstdel_front
 
 SRC_FILES+=$(addprefix $(FTIS_DIR),$(FTIS))
 SRC_FILES+=$(addprefix $(FTMEM_DIR),$(FTMEM))
