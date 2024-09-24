@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 16:41:54 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/10 14:35:16 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/24 17:16:56 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	wait_childs(pid_t *pids, int num)
 		return (status + 128);
 	}
 	if (WIFEXITED(status))
-		return (WIFEXITSTATUS(status));
+		return (WEXITSTATUS(status));
 	return (EXIT_FAILURE);
 }
 

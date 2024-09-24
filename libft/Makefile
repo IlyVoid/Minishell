@@ -6,7 +6,7 @@
 #    By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/22 15:11:24 by quvan-de          #+#    #+#              #
-#    Updated: 2024/09/23 22:45:33 by quvan-de         ###   ########.fr        #
+#    Updated: 2024/09/24 17:01:49 by quvan-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,8 @@ FTTO		=	ft_atoi ft_itoa ft_tolower ft_toupper ft_atol
 FTSTR_DIR	=	str/
 FTSTR		=	ft_split ft_strchr ft_strdup ft_striteri ft_strjoin \
 				ft_strlcat ft_strlcpy ft_strlen ft_strmapi ft_strncmp \
-				ft_strnstr ft_strrchr ft_strtrim ft_substr ft_strcmp
+				ft_strnstr ft_strrchr ft_strtrim ft_substr ft_strcmp \
+				ft_remove_nl
 
 FTLST_DIR	=	lists/
 FTLST		=	ft_lstadd_back ft_lstadd_front ft_lstclear ft_lstdelone \

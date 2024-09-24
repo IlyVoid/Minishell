@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 15:56:09 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/03 08:31:07 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/24 20:44:11 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ enum	e_characters
 	REDIR_L = 60,
 	REDIR_R = 62,
 	COLON = 58,
+	D_SIGN = 36,
 	L_REDIR_SEP = 29,
 	R_REDIR_SEP = 20,
 	ASTERIX = 42,
@@ -161,7 +162,7 @@ enum	e_signals_echo
 # endif
 
 # ifndef NOT_EXPANDABLE
-#  define NOT_EXPANDABLE -1
+#  define NOT_EXPANDABLE -2
 # endif
 
 # ifndef PROMPT_STAT_LEN

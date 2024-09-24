@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/24 16:38:58 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/24 20:57:41 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,6 +181,13 @@ char		**sort_str_arr(char **av, int size);
 /* SIGNALS */
 void		toggler(int mode);
 void		signal_interceptor(int mode);
+
+/* EXP DOLLAR */
+int			exp_dollar_sign(char **str, char **penv, int last_exit_status);
+int			generic_exp_dollar_sign(char **str, char **penv);
+int			q_mark_exp_dollar_sign(char **str, int last_exit_status);
+int			search_env_exp_module(char **penv, char *var, int i, int j);
+void		index_quotes(char *str, int i, int *s_quote, int *d_quote);
 
 /* VALIDATE SYNTAX */
 char		*pipe_val(char *str, t_bool *status);

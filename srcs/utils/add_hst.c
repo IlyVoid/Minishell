@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 22:28:19 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/24 16:58:37 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/24 17:03:22 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	add_bash_hst(char *cmdline, t_minishell **minishell, int mode)
 
 	minish = *minishell;
 	ft_remove_nl(cmdline);
-	add_history(cmdline)
+	add_history(cmdline);
 	if (minish->history_path == NULL)
 		return ;
 	cmd = ft_strdup(cmdline);
