@@ -12,8 +12,8 @@
 
 #include "../../includes/minishell.h"
 
-static int	process_pattern_match(char **line, char **pattern,
-	t_bool *wildcard, char **placeholder)
+static int	process_pattern_match(char **line, char **pattern, t_bool *wildcard,
+		char **placeholder)
 {
 	if (**pattern == **line)
 	{

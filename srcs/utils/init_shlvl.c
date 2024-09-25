@@ -35,8 +35,7 @@ int	check_non_digits(char *str)
 	return (false);
 }
 
-static int	init_shlvl_if_exists(int pos, char ***penv,
-	int number, char *shlvl)
+static int	init_shlvl_if_exists(int pos, char ***penv, int number, char *shlvl)
 {
 	char	*new_number;
 	char	*temp;
@@ -70,8 +69,7 @@ int	init_var_if_none_exist(char ***penv, int i, char *var)
 	int		len;
 	char	**env_new;
 
-	if (add_to_env_list_env_new(*penv, &env_new, &i,
-			&len) == MALLOC_ERR)
+	if (add_to_env_list_env_new(*penv, &env_new, &i, &len) == MALLOC_ERR)
 		return (MALLOC_ERR);
 	env_new[len] = ft_strdup(var);
 	if (!env_new[len])
@@ -85,8 +83,8 @@ int	init_var_if_none_exist(char ***penv, int i, char *var)
 
 int	init_shlvl(char ***penv)
 {
-	int		pos;
-	int		status;
+	int	pos;
+	int	status;
 
 	status = 0;
 	pos = env_var(*penv, "SHLVL=", -1, 6);

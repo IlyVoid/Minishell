@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 14:37:22 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/24 16:35:45 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/25 18:53:31 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,6 @@ void	end_process(t_minishell *minish)
 	rl_clear_history();
 	save_hst_file(minish);
 	status = minish->exit_status;
-	ft_free_minish(minish);
+	free_minish(minish);
 	exit(status);
 }

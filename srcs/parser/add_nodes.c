@@ -19,8 +19,8 @@ int	add_or_and_pipe_tree(t_node_info *info, t_node **root, int *hd_num,
 
 	status = create_tree(info->left_str, &((*root)->left), hd_num, minish);
 	if (status == 0)
-		status = create_tree(info->right_str,
-				&((*root)->right), hd_num, minish);
+		status = create_tree(info->right_str, &((*root)->right), hd_num,
+				minish);
 	return (status);
 }
 

@@ -28,7 +28,7 @@ static void	sigint_interactive(int sig)
 
 // init interceptor
 static void	init_interceptor(void (*first_handle)(int),
-				void (*second_handle)(int))
+		void (*second_handle)(int))
 {
 	struct sigaction	sa;
 	struct sigaction	sq;

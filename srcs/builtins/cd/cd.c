@@ -6,12 +6,11 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 16:25:03 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/22 18:21:31 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/25 18:39:50 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../includes/minishell.h"
-#include <unistd.h>
 
 static void	cd_oldpwd_handler(t_minishell *minish)
 {

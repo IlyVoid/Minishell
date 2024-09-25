@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 19:32:56 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/24 16:44:25 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/25 18:35:20 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	bracket_traverser(t_node **root, t_minishell *minish)
 		signal_interceptor(DEFAULT);
 		minish->is_parent = false;
 		node = *root;
-		status = tree_traverser(&(node->left), minish); // in progress
+		status = tree_traverser(&(node->left), minish);
 		exit(status);
 	}
 	else

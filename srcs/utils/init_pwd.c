@@ -66,8 +66,8 @@ static int	init_pwd_if_none_exist(char ***penv, char **pwd)
 
 int	init_pwd(char ***penv, char **pwd)
 {
-	int		pos;
-	int		status;
+	int	pos;
+	int	status;
 
 	pos = env_var(*penv, "PWD=", -1, 4);
 	if (pos == -1)

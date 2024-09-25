@@ -13,15 +13,14 @@
 #include "../../includes/minishell.h"
 
 static int	build_arr_before_wc_split(char ****t_3d_arr_tmp, char ***arr,
-										int *arr_new_length)
+		int *arr_new_length)
 {
 	int		i;
 	char	***local_3d_arr_tmp;
 
 	i = -1;
 	local_3d_arr_tmp = *t_3d_arr_tmp;
-	local_3d_arr_tmp = ft_calloc(ft_arrlen((void **)*arr) + 1,
-			sizeof(char **));
+	local_3d_arr_tmp = ft_calloc(ft_arrlen((void **)*arr) + 1, sizeof(char **));
 	if (!local_3d_arr_tmp)
 		return (MALLOC_ERR);
 	while ((*arr)[i++])

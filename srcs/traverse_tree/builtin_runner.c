@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/31 18:40:49 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/16 11:16:14 by brsantsc         ###   ########.fr       */
+/*   Updated: 2024/09/25 18:34:58 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int	builtin_runner(char **cmd, char **redir, t_minishell *minish, int cmd_type)
 		status = run_with_redir(cmd, redir, minish, cmd_type);
 	return (status);
 }
-
-// cmd_run yet to make.
 
 int	run_without_redir(char **cmd, t_minishell *minish, int cmd_type)
 {

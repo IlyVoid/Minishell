@@ -23,8 +23,7 @@ static int	expansion_qm(char *str, int *last_ind)
 	i = 0;
 	while (str[i] != NULL_TERM)
 	{
-		if ((d_quote == 0 || d_quote == 1)
-			&& s_quote != 1 && str[i] == D_SIGN
+		if ((d_quote == 0 || d_quote == 1) && s_quote != 1 && str[i] == D_SIGN
 			&& str[i + 1] == Q_MARK)
 		{
 			str[i] = NULL_TERM;

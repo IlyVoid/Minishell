@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:05:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/23 12:07:59 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/25 18:33:54 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int	check_for_errors(char **arr, int *ops)
 	}
 	return (SUCCESS);
 }
-
 
 int	exec_other(char **arr, int *ops)
 {

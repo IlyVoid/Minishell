@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:44:52 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/16 09:51:22 by brsantsc         ###   ########.fr       */
+/*   Updated: 2024/09/25 19:28:54 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	create_tree(char *str, t_node **root, int *hd_num, t_minishell *minish)
 	else if (type == T_CMD_BR)
 		status = add_cmd_br(info, root, hd_num, minish);
 	free(info);
-	if (status != SUCCESS)
+	if (status != true)
 	{
 		free_tree(root);
 		return (status);

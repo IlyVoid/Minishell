@@ -48,7 +48,7 @@ int	check_quote(char *str, int point, int symbol)
 	int	i;
 	int	pair[2];
 
-	i = (int) ft_strlen(str) - 1;
+	i = (int)ft_strlen(str) - 1;
 	pair[0] = 0;
 	pair[1] = 0;
 	while (i >= point)

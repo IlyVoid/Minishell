@@ -26,8 +26,7 @@ int	allocate_temp_array(char ***arr, t_wc *wc)
 		return (MALLOC_ERR);
 	while (i < wc->arr_length)
 	{
-		(wc->temp_arr)[i] = ft_calloc(arr_len_entities(0) + 1,
-				sizeof(char *));
+		(wc->temp_arr)[i] = ft_calloc(arr_len_entities(0) + 1, sizeof(char *));
 		if (!(wc->temp_arr)[i++])
 		{
 			ft_free_3d_array(wc->temp_arr, 0);
@@ -94,8 +93,8 @@ int	allocate_and_fill_expanded_array(t_wc *wc)
 	return (SUCCESS);
 }
 
-static int	abs_path_check(t_wc *wc, char *str,
-	int slash_cwd_len, int slash_str_len)
+static int	abs_path_check(t_wc *wc, char *str, int slash_cwd_len,
+		int slash_str_len)
 {
 	char	*cwd;
 	char	*cwd_join;
@@ -134,8 +133,7 @@ int	if_abs_path(t_wc *wc, char *str)
 		slash_str_len = temp - str + 1;
 	if (slash_str_len != 0 && ft_strlen(str) > 0)
 	{
-		if (abs_path_check(wc, str, slash_cwd_len,
-				slash_str_len) == MALLOC_ERR)
+		if (abs_path_check(wc, str, slash_cwd_len, slash_str_len) == MALLOC_ERR)
 			return (MALLOC_ERR);
 	}
 	else

@@ -12,7 +12,7 @@
 
 #include "../../includes/minishell.h"
 
-int	fetch_cmdline(char **cmdline, t_minishell **minish);
+int		fetch_cmdline(char **cmdline, t_minishell **minish);
 void	check_sig(t_minishell **minish);
 void	ft_readline(char **cmdline, char *prompt);
 
@@ -37,7 +37,8 @@ void	run_minish(t_minishell **minish)
 			if (status != 0)
 				(*minish)->exit_status = status;
 			if (status == 0)
-				(*minish)->exit_status = tree_traverser(&((*minish)->root), *minish);
+				(*minish)->exit_status = tree_traverser(&((*minish)->root),
+						*minish);
 			free(cmdline);
 		}
 	}

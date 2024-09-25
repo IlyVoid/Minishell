@@ -31,8 +31,7 @@ int	tree_traverser(t_node **root, t_minishell *minish)
 		status = cmd_br_traverser(root, minish);
 	else if (type == T_CMD)
 		status = cmd_traverser(((t_cmd *)*root)->cmd,
-				((t_redir *)((t_cmd *)*root)->redir)->redirs,
-				minish);
+				((t_redir *)((t_cmd *)*root)->redir)->redirs, minish);
 	free_tree(root);
 	return (status);
 }

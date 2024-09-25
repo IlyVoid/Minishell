@@ -18,8 +18,8 @@ static int	auxiliary_closedir(t_wc *wc)
 	return (MALLOC_ERR);
 }
 
-static int	dot_path_const_wc_block(t_wc *wc,
-	char **temp_arr_local, char *str, int *i)
+static int	dot_path_const_wc_block(t_wc *wc, char **temp_arr_local, char *str,
+		int *i)
 {
 	char	*first;
 
@@ -33,8 +33,8 @@ static int	dot_path_const_wc_block(t_wc *wc,
 	return (SUCCESS);
 }
 
-static int	abs_path_const_wc_block(t_wc *wc,
-	char **temp_arr_local, char *str, int *i)
+static int	abs_path_const_wc_block(t_wc *wc, char **temp_arr_local, char *str,
+		int *i)
 {
 	char	*first;
 	char	*second;
@@ -56,8 +56,7 @@ static int	abs_path_const_wc_block(t_wc *wc,
 	return (SUCCESS);
 }
 
-static int	no_path_wc_block(t_wc *wc, char **temp_arr_local,
-	char *str, int *i)
+static int	no_path_wc_block(t_wc *wc, char **temp_arr_local, char *str, int *i)
 {
 	if (wc_strcmp(wc->entry->d_name, str))
 	{
@@ -71,25 +70,22 @@ static int	no_path_wc_block(t_wc *wc, char **temp_arr_local,
 	return (SUCCESS);
 }
 
-int	fill_temp_arr_conditions_block(t_wc *wc,
-	char **temp_arr_local, char *str, int *i)
+int	fill_temp_arr_conditions_block(t_wc *wc, char **temp_arr_local, char *str,
+		int *i)
 {
 	if (wc->abs_path_flag == DOT_PATH)
 	{
-		if (dot_path_const_wc_block(wc, temp_arr_local, str, i)
-			== MALLOC_ERR)
+		if (dot_path_const_wc_block(wc, temp_arr_local, str, i) == MALLOC_ERR)
 			return (MALLOC_ERR);
 	}
 	else if (wc->abs_path_flag == ABS_PATH)
 	{
-		if (abs_path_const_wc_block(wc, temp_arr_local, str, i)
-			== MALLOC_ERR)
+		if (abs_path_const_wc_block(wc, temp_arr_local, str, i) == MALLOC_ERR)
 			return (MALLOC_ERR);
 	}
 	else
 	{
-		if (no_path_wc_block(wc, temp_arr_local, str, i)
-			== MALLOC_ERR)
+		if (no_path_wc_block(wc, temp_arr_local, str, i) == MALLOC_ERR)
 			return (MALLOC_ERR);
 	}
 	return (SUCCESS);

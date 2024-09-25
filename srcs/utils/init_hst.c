@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 22:49:41 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/24 01:41:03 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/25 19:35:42 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	read_hstfile(t_minishell **minish);
 
 void	init_hst(t_minishell **minishell)
 {
-	t_minishell *minish;
+	t_minishell	*minish;
 
 	minish = *minishell;
 	minish->history_path = ft_strjoin(minish->pwd, "/.d-sh_history");
@@ -34,21 +34,27 @@ void	read_hstfile(t_minishell **minish)
 	FILE	*file;
 	char	*curr;
 
+	curr = NULL;
 	file = fopen((*minish)->history_path, "r");
 	if (file == NULL)
 	{
-		perror_err_msg("initialization error for history", (*minish)->history_path);
+		perror_err_msg("initialization error for history",
+			(*minish)->history_path);
 		return ;
 	}
-	while ((curr = readline(NULL)) != NULL)
+	while (1)
 	{
+		curr = readline(NULL);
+		if (curr == NULL)
+			break ;
 		add_bash_hst(curr, minish, 0);
 		free(curr);
 	}
 	if (ferror(file))
 	{
 		ft_putstr_fd("\033[0;31md-sh:\033[0;0m error occured while"
-			" reading history file", STDERR_FILENO);
+			" reading history file",
+			STDERR_FILENO);
 	}
 	fclose(file);
 }

@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 14:37:42 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/09 16:48:40 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/25 19:37:31 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	shlvl_warn_msg(int number)
 	free(num);
 	if (!first_num_part)
 		return ;
-	msg = ft_strjoin(first_num_part, msg);
+	msg = ft_strjoin(first_num_part, ") too high, resetting to 1\n");
 	free(first_num_part);
 	if (!msg)
 		return ;

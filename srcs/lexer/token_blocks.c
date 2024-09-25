@@ -16,8 +16,7 @@ int	and_if_condition_block(t_node_info **node, char *str, int type, int i)
 {
 	if (str[i] == AND && str[i - 1] == AND)
 	{
-		if (check_round_br(str, i)
-			&& check_quote(str, i, S_QUOTE)
+		if (check_round_br(str, i) && check_quote(str, i, S_QUOTE)
 			&& check_quote(str, i, D_QUOTE))
 			return (put_info_and_or_pipe_node(node, str, i, T_AND));
 		else
@@ -25,8 +24,7 @@ int	and_if_condition_block(t_node_info **node, char *str, int type, int i)
 	}
 	else if (str[i] == PIPE && str[i - 1] == PIPE)
 	{
-		if (check_round_br(str, i)
-			&& check_quote(str, i, S_QUOTE)
+		if (check_round_br(str, i) && check_quote(str, i, S_QUOTE)
 			&& check_quote(str, i, D_QUOTE))
 			return (put_info_and_or_pipe_node(node, str, i, T_AND));
 		else
@@ -39,8 +37,7 @@ int	pipe_block(t_node_info **node, char *str, int type, int i)
 {
 	if (str[i] == PIPE)
 	{
-		if (check_round_br(str, i)
-			&& check_quote(str, i, S_QUOTE)
+		if (check_round_br(str, i) && check_quote(str, i, S_QUOTE)
 			&& check_quote(str, i, D_QUOTE))
 			return (put_info_and_or_pipe_node(node, str, i, T_AND));
 		else

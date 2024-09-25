@@ -13,17 +13,17 @@
 #include "../../includes/minishell.h"
 
 static void	process_dollar_sign_in_str(char *str, char **penv,
-									   t_exp_dollar *dollar)
+		t_exp_dollar *dollar)
 {
 	dollar->j = dollar->i;
 	while (ft_isenv(str[dollar->i], &(dollar->i)))
 		(dollar->i)++;
 	dollar->ind_last_part = dollar->i;
-	dollar->lst_pos_env = search_env_exp_module(penv,
-			str + dollar->j, -1, dollar->i - dollar->j);
+	dollar->lst_pos_env = search_env_exp_module(penv, str + dollar->j, -1,
+			dollar->i - dollar->j);
 	if (dollar->lst_pos_env != NOT_FOUND)
-		dollar->part_env = penv[dollar->lst_pos_env] + dollar->i
-			- dollar->j + 1;
+		dollar->part_env = penv[dollar->lst_pos_env] + dollar->i - dollar->j
+			+ 1;
 	else
 		dollar->part_env = "\0";
 	(dollar->j)--;
@@ -33,7 +33,7 @@ static void	process_dollar_sign_in_str(char *str, char **penv,
 }
 
 static void	init_s_dollar(t_exp_dollar *dollar, char **part_env,
-	int *ind_last_part)
+		int *ind_last_part)
 {
 	dollar->i = 0;
 	dollar->j = 0;
@@ -45,15 +45,15 @@ static void	init_s_dollar(t_exp_dollar *dollar, char **part_env,
 }
 
 static int	expansion(char *str, char **penv, char **part_env,
-	int *ind_last_part)
+		int *ind_last_part)
 {
 	t_exp_dollar	dollar;
 
 	init_s_dollar(&dollar, part_env, ind_last_part);
 	while (str[dollar.i] != NULL_TERM)
 	{
-		if ((dollar.d_quote == 0 || dollar.d_quote == 1)
-			&& dollar.s_quote != 1 && str[dollar.i] == D_SIGN)
+		if ((dollar.d_quote == 0 || dollar.d_quote == 1) && dollar.s_quote != 1
+			&& str[dollar.i] == D_SIGN)
 		{
 			if (++(dollar.i) && ft_isenv(str[dollar.i], &(dollar.i)))
 			{
@@ -76,8 +76,8 @@ int	generic_exp_dollar_sign(char **str, char **penv)
 
 	ds_g.new_str = *str;
 	ds_g.mid = NULL;
-	while (expansion(ds_g.new_str, penv, &(ds_g.mid), &(ds_g.last_ind))
-		!= NOT_EXPANDABLE)
+	while (expansion(ds_g.new_str, penv, &(ds_g.mid),
+			&(ds_g.last_ind)) != NOT_EXPANDABLE)
 	{
 		ds_g.first = ds_g.new_str;
 		ds_g.last = ds_g.new_str + ds_g.last_ind;

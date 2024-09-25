@@ -14,7 +14,7 @@
 
 int	fill_temp_arr_with_str(char *str, char **temp_arr_local, t_wc *wc)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (wc->entry != NULL && i < wc->ent_length)
@@ -24,8 +24,8 @@ int	fill_temp_arr_with_str(char *str, char **temp_arr_local, t_wc *wc)
 			wc->entry = readdir(wc->dir);
 			continue ;
 		}
-		if (fill_temp_arr_conditions_block(wc, temp_arr_local, str, &i)
-			== MALLOC_ERR)
+		if (fill_temp_arr_conditions_block(wc, temp_arr_local, str,
+				&i) == MALLOC_ERR)
 			return (MALLOC_ERR);
 		wc->entry = readdir(wc->dir);
 	}

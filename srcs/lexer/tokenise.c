@@ -34,8 +34,8 @@ int	put_info_cmd_node(t_node_info **info, char *str, int type)
 	return (1);
 }
 
-int	put_info_and_or_pipe_node(t_node_info **info,
-		char *str, int point, int type)
+int	put_info_and_or_pipe_node(t_node_info **info, char *str, int point,
+		int type)
 {
 	t_node_info	*node_info;
 

@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/25 15:14:01 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/25 18:38:25 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,19 +83,19 @@ int			env_var(char **penv, char *var, int i, int j);
 t_bool		ft_isenv(char c, int *j);
 int			arg_var(char **arr, char *var, int i, int j);
 void		struct_update_pwd_and_full_oldpwd(char *new_pwd,
-										t_minishell *minish);
+				t_minishell *minish);
 void		cd_precheck(char **arr, t_minishell *minish);
 void		update_env_pwd(t_minishell *minish, int pos,
-							char *cwd, char *temp);
+				char *cwd, char *temp);
 void		update_env_oldpwd(t_minishell *minish);
 void		create_ops_array(char **arr, char **penv, int *ops);
 int			check_ops(int *ops, int *i, int *j, int type);
 int			add_to_env_list_env_new(char **penv, char ***result,
-									int *i, int *len);
+				int *i, int *len);
 int			add_to_env_list(char ***env_new, char **arr,
-							t_minishell *minish, int *ops);
+				t_minishell *minish, int *ops);
 int			edit_env_list(char ***env_new, char **arr, int *ops,
-						t_minishell *minish);
+				t_minishell *minish);
 int			check_for_errors(char **arr, int *ops);
 int			exec_other(char **arr, int *ops);
 void		run_export(char **arr, t_minishell *minish);
@@ -198,7 +198,7 @@ int			arr_sort_process(t_wc *wc, int *i);
 int			sort_arr_with_cmd_inside(t_wc *wc, char ***arr);
 char		**str_arr_join(char **arr, char *str);
 int			fill_temp_arr_conditions_block(t_wc *wc,
-							char **temp_arr_local, char *str, int *i);
+				char **temp_arr_local, char *str, int *i);
 int			fill_temp_arr_with_str(char *str, char **temp_arr_local, t_wc *wc);
 int			exp_entity(char ***temp_arr, char *str, t_wc *wc, char **local);
 int			arr_len_entities(int sub_arr_len);

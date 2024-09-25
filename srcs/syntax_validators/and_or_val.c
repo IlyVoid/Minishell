@@ -21,8 +21,8 @@ char	*and_or_val(char *str, t_bool *status)
 	next_token = pipe_val(str, status);
 	if (*status == false)
 		return (next_token);
-	if ((ft_strncmp("&&", next_token, 2) == 0
-		|| ft_strncmp("||", next_token, 2) == 0))
+	if ((ft_strncmp("&&", next_token, 2) == 0 || ft_strncmp("||", next_token,
+				2) == 0))
 	{
 		next_token += 2;
 		if (string_is_empty(next_token) == true)

@@ -28,8 +28,8 @@ static void	quote_checker(char *str, int *i, int *wc_flag)
 		*wc_flag = 1;
 	else if (str[*i] == D_QUOTE && *wc_flag == 0)
 		*wc_flag = 2;
-	else if ((str[*i] == S_QUOTE && *wc_flag == 1)
-		|| (str[*i] == D_QUOTE && *wc_flag == 2))
+	else if ((str[*i] == S_QUOTE && *wc_flag == 1) || (str[*i] == D_QUOTE
+			&& *wc_flag == 2))
 		*wc_flag = 0;
 }
 

@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 16:14:14 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/24 16:27:37 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/25 18:37:21 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	kill_minish(t_minishell **minish, int status)
 {
 	free_minish(*minish);
 	ft_putstr_fd("\033[0;31md-sh:\033[0;0m can't initialize "
-		"t_minishell structure\n", STDERR_FILENO);
-	exit (status);
+		"t_minishell structure\n",
+		STDERR_FILENO);
+	exit(status);
 }

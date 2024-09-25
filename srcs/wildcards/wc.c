@@ -15,7 +15,7 @@
 int	wc(char ***arr)
 {
 	t_wc	wc;
-	int			status;
+	int		status;
 
 	if (!if_asterix_in_arr(*arr, 0, 0))
 		return (SUCCESS);

@@ -24,7 +24,7 @@ static int	env_search_pos(char ***penv, char *var, int i)
 		if (pos == -1)
 			return (-1);
 		else if (env_new[pos][ft_strlen(var)] == EQUAL)
-				return (pos);
+			return (pos);
 		else
 		{
 			i += pos;

@@ -31,8 +31,7 @@ char	**str_arr_join(char **arr, char *str)
 
 int	sort_arr_with_cmd_inside(t_wc *wc, char ***arr)
 {
-	wc->new_sorted_arr = sort_str_arr(*arr + 1,
-			ft_arrlen((void **)(*arr)) - 1);
+	wc->new_sorted_arr = sort_str_arr(*arr + 1, ft_arrlen((void **)(*arr)) - 1);
 	if (!wc->new_sorted_arr)
 	{
 		ft_free_3d_array(wc->temp_arr, 0);

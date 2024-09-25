@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 11:15:25 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/24 16:41:15 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/25 19:30:42 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	remove_space_and_quotes_hd(char *hd);
 static void	heredoc(char *limiter, int fd, t_minishell *minish);
-static void	handle_line_heredoc(int fd, char *line, t_minishell *minish,
+static void	handle_heredoc_line(int fd, char *line, t_minishell *minish,
 				char *limiter);
 
 int	prepare_heredoc(char **limiter, char *hd_name, t_minishell *minish)
@@ -42,7 +42,7 @@ int	prepare_heredoc(char **limiter, char *hd_name, t_minishell *minish)
 	return (status);
 }
 
-void	remove_spaces_and_quotes_hd(char *hd)
+static void	remove_space_and_quotes_hd(char *hd)
 {
 	int	i;
 
@@ -75,7 +75,7 @@ static void	heredoc(char *limiter, int fd, t_minishell *minish)
 		}
 		isequal = ft_strcmp(limiter, line);
 		if (isequal != 0)
-			handle_line_heredoc(fd, line, minish, limiter);
+			handle_heredoc_line(fd, line, minish, limiter);
 		if (isequal == 0)
 		{
 			close(fd);
@@ -112,8 +112,9 @@ void	remove_hd_duplicates(char ***redirs, char *hd_name, char hd_counter)
 }
 
 // yet to make exp_dollar_sign() (adaptations possible,
-//deffo gotta look for a perm name)
-static void	handle_heredoc_line(int fd, char *line, t_minishell *minish, char *limiter)
+// deffo gotta look for a perm name)
+static void	handle_heredoc_line(int fd, char *line, t_minishell *minish,
+		char *limiter)
 {
 	int	status;
 
