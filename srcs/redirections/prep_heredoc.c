@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 11:15:25 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/25 19:30:42 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/25 19:55:54 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ static void	heredoc(char *limiter, int fd, t_minishell *minish)
 	}
 }
 
-void	remove_hd_duplicates(char ***redirs, char *hd_name, char hd_counter)
+void	remove_hd_dups(char ***redirs, char *hd_name, char hd_counter)
 {
 	int		i;
 	int		j;

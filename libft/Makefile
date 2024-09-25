@@ -6,7 +6,7 @@
 #    By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/22 15:11:24 by quvan-de          #+#    #+#              #
-#    Updated: 2024/09/24 17:01:49 by quvan-de         ###   ########.fr        #
+#    Updated: 2024/09/25 19:53:29 by quvan-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ FTIS		=	ft_isalnum ft_isalpha ft_isascii ft_isdigit ft_isprint ft_arrlen \
 
 FTMEM_DIR	=	mem/
 FTMEM		=	ft_bzero ft_calloc ft_memchr ft_memcmp ft_memmove ft_memset \
-				ft_free_2d_3d_array
+				ft_free_2d_3d_array ft_memcpy
 
 FTPUT_DIR	=	fd/
 FTPUT		=	ft_putchar_fd ft_putendl_fd ft_putnbr_fd ft_putstr_fd

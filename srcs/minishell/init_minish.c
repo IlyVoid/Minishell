@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 16:14:14 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/25 18:37:21 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/25 20:00:00 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	kill_minish(t_minishell **minish, int status);
 
 void	init_minish(t_minishell **minish)
 {
-	extern char	**envi;
+	extern char	**environ;
 	int			status;
 
 	status = 0;
@@ -26,7 +26,7 @@ void	init_minish(t_minishell **minish)
 		status = MALLOC_ERR;
 	if (status == 0)
 	{
-		(*minish)->env = cpy_env(envi);
+		(*minish)->env = cpy_env(environ);
 		if (!(*minish)->env)
 			status = MALLOC_ERR;
 	}
