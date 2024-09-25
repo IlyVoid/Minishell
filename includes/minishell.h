@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 16:35:44 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/24 20:57:41 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/25 15:14:01 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,6 +188,26 @@ int			generic_exp_dollar_sign(char **str, char **penv);
 int			q_mark_exp_dollar_sign(char **str, int last_exit_status);
 int			search_env_exp_module(char **penv, char *var, int i, int j);
 void		index_quotes(char *str, int i, int *s_quote, int *d_quote);
+
+/* WILDCARDS */
+int			allocate_temp_array(char ***arr, t_wc *wc);
+int			fill_temp_array(char ***arr, t_wc *wc);
+int			allocate_and_fill_expanded_array(t_wc *wc);
+int			if_abs_path(t_wc *wc, char *str);
+int			arr_sort_process(t_wc *wc, int *i);
+int			sort_arr_with_cmd_inside(t_wc *wc, char ***arr);
+char		**str_arr_join(char **arr, char *str);
+int			fill_temp_arr_conditions_block(t_wc *wc,
+							char **temp_arr_local, char *str, int *i);
+int			fill_temp_arr_with_str(char *str, char **temp_arr_local, t_wc *wc);
+int			exp_entity(char ***temp_arr, char *str, t_wc *wc, char **local);
+int			arr_len_entities(int sub_arr_len);
+t_bool		trans_str_back(char *line, char *pattern, t_bool res);
+void		trans_str(char *line, char *pattern);
+t_bool		if_only_asterix(char *pattern);
+t_bool		wc_strcmp(char *line, char *pattern);
+t_bool		if_asterix_in_arr(char **arr, int i, int j);
+int			wc(char ***arr);
 
 /* VALIDATE SYNTAX */
 char		*pipe_val(char *str, t_bool *status);

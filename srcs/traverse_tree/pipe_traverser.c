@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 16:42:07 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/24 16:45:26 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/25 15:15:57 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	pipe_traverser(t_node **root, t_minishell *minish)
 	if (minish->is_parent == false)
 		signal_interceptor(DEFAULT);
 	node = *root;
-	if (pipe[pipefd] == -1)
+	if (pipe(pipefd) == -1)
 		return (PIPE_FAILURE);
 	status = first_traversal(&(node->left), minish, pipefd, pids);
 	if (status == 0)

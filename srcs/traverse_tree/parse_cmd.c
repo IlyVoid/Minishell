@@ -6,7 +6,7 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/30 10:36:32 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/08/31 18:40:03 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/25 15:15:21 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	parse_cmd(char *cmd, char ***res, t_minishell *minish)
 	if (status == 0)
 		status = build_array_before_wc(&arr, -1, -1, -1);
 	if (status == 0)
-		status = wildcards(&arr); // yet to create wc
+		status = wc(&arr);
 	if (status != 0 && arr != NULL)
 		ft_free_2d_array(arr);
 	if (status == 0)
