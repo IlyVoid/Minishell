@@ -6,7 +6,7 @@
 #    By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/25 15:48:37 by quvan-de          #+#    #+#              #
-#    Updated: 2024/09/26 23:05:52 by quvan-de         ###   ########.fr        #
+#    Updated: 2024/09/27 00:04:08 by quvan-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ MINISH = exite.c minishell.c signals.c
 PARSER = expansion.c parser.c subsplit.c trim_q.c
 
 UTILS = block_u.c block_u1.c builtin_u.c check_input.c error.c \
-		expansions.c free.c parser_u.c
+                expansions.c free.c parser_u.c
 
 SOURCES = $(BLOCKS) $(BUILTINS) $(EXECUTION) $(LIB_SRC) $(MINISH) $(PARSER) $(UTILS)
 
@@ -54,20 +54,22 @@ OBJS = $(addprefix $(OBJS_DIR)/,$(SOURCES:.c=.o))
 # Phony targets to avoid name conflicts
 .PHONY: all tmp clean fclean re
 
+.SILENT:
+
 all: tmp $(NAME)
 
 tmp:
 	@mkdir -p $(OBJS_DIR)
 
 $(NAME): $(OBJS)
-	@echo "$(YELLOW)Linking $(NAME)...$(DEF_COLOR)"
 	@$(CC) $(CFLAGS) -o $@ $^ -lm -lreadline
-	@echo "$(GREEN)Project successfully compiled!$(DEF_COLOR)"
+	@echo "\n$(GREEN)Project successfully compiled!$(DEF_COLOR)"
 
 $(OBJS_DIR)/%.o: $(SRCS_DIR)/**/%.c $(INCLUDES)
-	@echo "$(YELLOW)Compiling: $(WHITE)$<$(DEF_COLOR) -> $(BLUE)$(notdir $@)$(DEF_COLOR)"
-	@$(CC) $(CFLAGS) -c -o $@ $<
-	@echo "$(BLUE)Object file created: $(WHITE)$(notdir $@)$(RED)[Done]$(DEF_COLOR)"
+	@echo -n "$(DEF_COLOR) $(GREEN)$(notdir $@)$(DEF_COLOR) "
+	printf "\r";
+	@spinner='/-\\|';
+	$(CC) $(CFLAGS) -c -o $@ $<;
 
 clean:
 	@echo "$(RED)Deleting object files...$(DEF_COLOR)"
@@ -77,7 +79,6 @@ clean:
 fclean: clean
 	@echo "$(RED)Deleting executable...$(DEF_COLOR)"
 	@$(RM) $(NAME)
-	@echo "$(RED)All files cleaned with fclean$(DEF_COLOR)"
+	@echo "$(GREEN)All files cleaned with fclean$(DEF_COLOR)"
 
 re: fclean all
-
