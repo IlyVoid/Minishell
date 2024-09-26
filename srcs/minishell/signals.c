@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   echo.c                                             :+:      :+:    :+:   */
+/*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 15:51:00 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/26 22:16:27 by quvan-de         ###   ########.fr       */
+/*   Created: 2024/09/24 01:21:48 by quvan-de          #+#    #+#             */
+/*   Updated: 2024/09/26 21:52:31 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int	ft_echo(t_block *cmd)
+void	sig_int(int sig)
 {
-	int	i;
-	int	n_flag;
+	(void)sig;
+	ioctl(STDIN_FILENO, TIOCSTI, "\n");
+	rl_replace_line("", 0);
+	rl_on_new_line();
+}
 
-	i = 1;
-	n_flag = 0;
-	while (cmd->args[i] && ft_strcmp(cmd->args[i], "-n") == 0)
+void	ft_signal(int flag, t_data *g_data)
+{
+	if (flag == 1)
 	{
-		n_flag = 1;
-		i++;
+		signal(SIGINT, sig_int);
+		signal(SIGQUIT, SIG_IGN);
 	}
-	while (cmd->args[i])
+	else if (flag == 3)
 	{
-		ft_putstr_fd(cmd->args[i], 1);
-		if (cmd->args[i + 1])
-			ft_putstr_fd(" ", 1);
-		i++;
+		ft_exit("\b\bexit\n", 1, g_data);
 	}
-	if (n_flag == 0)
-		ft_putstr_fd("\n", 1);
-	return (0);
 }

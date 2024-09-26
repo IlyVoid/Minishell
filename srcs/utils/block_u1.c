@@ -1,37 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   echo.c                                             :+:      :+:    :+:   */
+/*   block_u1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/20 15:51:00 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/26 22:16:27 by quvan-de         ###   ########.fr       */
+/*   Created: 2024/09/24 20:29:16 by quvan-de          #+#    #+#             */
+/*   Updated: 2024/09/26 21:55:59 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-int	ft_echo(t_block *cmd)
+void	ft_redir_error(t_block *block, char *str, char *filename)
 {
-	int	i;
-	int	n_flag;
-
-	i = 1;
-	n_flag = 0;
-	while (cmd->args[i] && ft_strcmp(cmd->args[i], "-n") == 0)
-	{
-		n_flag = 1;
-		i++;
-	}
-	while (cmd->args[i])
-	{
-		ft_putstr_fd(cmd->args[i], 1);
-		if (cmd->args[i + 1])
-			ft_putstr_fd(" ", 1);
-		i++;
-	}
-	if (n_flag == 0)
-		ft_putstr_fd("\n", 1);
-	return (0);
+	ft_putstr_fd("minishell: ", 2);
+	ft_putstr_fd(str, 2);
+	ft_putstr_fd(": No such file or directory\n", 2);
+	if (filename)
+		free(filename);
+	if (!block)
+		return ;
+	if (block->cmd_name)
+		free_string(block->cmd_name);
+	if (block->args)
+		free_matrix(block->args);
+	free(block);
 }

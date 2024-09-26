@@ -6,31 +6,26 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 16:57:26 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/24 01:01:37 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/26 21:28:13 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-void	run_pwd(char **arr, t_minishell *minish)
+int	ft_pwd(void)
 {
-	char	*curr_dir;
-	int		len;
+	char	*path;
 
-	len = ft_arrlen((void **)arr);
-	if (len > 0 && ft_strlen(arr[0]) > 1 && arr[0][0] == DASH)
+	path = getcwd(NULL, 0);
+	if (path == NULL)
 	{
-		arr[0][2] = NULL_TERM;
-		arg_err_msg("pwd: `", arr[0], "': options are not supported\n");
-		minish->exit_status = CMD_ARG_ERROR;
-		return ;
+		ft_putstr_fd("minishell: pwd: ", 2);
+		ft_putstr_fd(strerror(errno), 2);
+		ft_putstr_fd("\n", 2);
+		return (-1);
 	}
-	curr_dir = getcwd(NULL, 0);
-	if (!curr_dir)
-	{
-		minish->exit_status = GETCWD_ERROR;
-		return ;
-	}
-	printf("%s\n", curr_dir);
-	free(curr_dir);
+	ft_putstr_fd(path, 1);
+	ft_putstr_fd("\n", 1);
+	free(path);
+	return (0);
 }

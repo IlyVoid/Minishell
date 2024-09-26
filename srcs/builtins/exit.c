@@ -6,81 +6,59 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 14:37:22 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/25 18:53:31 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/26 22:19:54 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static t_bool	zero_check(char *str)
+static void	ft_exit_ut(t_block *cmd)
 {
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str == '+' || *str == '-')
-		str++;
-	while (*str == '0')
-		str++;
-	while ((*str >= 9 && *str <= 13) || *str == 32)
-		str++;
-	if (*str != NULL_TERM)
-		return (true);
-	return (false);
-}
+	int	j;
 
-static void	exit_count_of_arg_err(t_minishell *minish)
-{
-	if (minish->is_parent == true)
-		ft_putstr_fd("exit\n", STDERR_FILENO);
-	print_err_msg("exit: ", "too many arguments\n");
-	minish->exit_status = GENERIC_ERROR;
-}
-
-static void	exit_nbr_format_arg_err(t_minishell *minish, char *str)
-{
-	if (minish->is_parent == true)
-		ft_putstr_fd("exit\n", STDERR_FILENO);
-	arg_err_msg("exit: ", str, ": numeric argument required\n");
-	minish->exit_status = UNEXPECTED_EXIT;
-	if (minish->is_parent == true)
-		end_process(minish);
-	exit(minish->exit_status);
-}
-
-void	run_exit(char **arr, t_minishell *minish, long nbr)
-{
-	if (ft_arrlen((void **)arr) > 1)
+	j = 0;
+	if (!(cmd->args[1][0] == '+' && cmd->args[1][0] == '-')
+			&& ft_isdigit(cmd->args[1][0]) == 0)
 	{
-		nbr = ft_atol(arr[0]);
-		if ((zero_check(arr[0]) && nbr == 0) || check_non_digits(arr[0]))
-			exit_nbr_format_arg_err(minish, arr[0]);
-		else
-			exit_count_of_arg_err(minish);
-		return ;
+		ft_putstr_fd("minishell: exit: ", 2);
+		ft_putstr_fd(cmd->args[1], 2);
+		ft_putstr_fd(": numeric argument required\n", 2);
+		free_blocks(cmd);
+		exit(255);
 	}
-	else if (!*arr)
-		minish->exit_status = SUCCESS;
 	else
 	{
-		nbr = ft_atol(arr[0]);
-		if ((zero_check(arr[0]) && nbr == 0) || check_non_digits(arr[0]))
-			exit_nbr_format_arg_err(minish, arr[0]);
-		else
-			minish->exit_status = (unsigned char)nbr;
+		j = ft_atoi(cmd->args[1]);
+		free_blocks(cmd);
+		exit(j);
 	}
-	if (minish->is_parent == true)
-		ft_putstr_fd("exit\n", STDERR_FILENO);
-	if (minish->is_parent == true)
-		end_process(minish);
-	exit(minish->exit_status);
 }
 
-void	end_process(t_minishell *minish)
+int	ft_exit_b(t_block *cmd, t_data	*g_data)
 {
-	int	status;
+	int	i;
 
-	rl_clear_history();
-	save_hst_file(minish);
-	status = minish->exit_status;
-	free_minish(minish);
-	exit(status);
+	i = 0;
+	while (cmd->args[i])
+		i++;
+	free_string(g_data->default_prompt);
+	free_env(g_data->environmental);
+	free_matrix(g_data->env);
+	free_exp(g_data->exp);
+	free_pipes(g_data->fd_pipe, g_data->block_cnt);
+	free(g_data);
+	if (i == 1)
+	{
+		free_blocks(cmd);
+		exit(0);
+	}
+	else if (i == 2)
+		ft_exit_ut(cmd);
+	else
+	{
+		ft_putstr_fd("minishell: exit: too many arguments\n", 2);
+		free_blocks(cmd);
+		exit(1);
+	}
+	return (0);
 }

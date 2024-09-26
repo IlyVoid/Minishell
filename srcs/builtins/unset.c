@@ -6,100 +6,71 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 15:25:23 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/22 16:09:17 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/26 22:26:20 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-static int	env_search_pos(char ***penv, char *var, int i)
+static char	ft_ft(char **matrix, t_env *env, int i)
 {
-	char	**env_new;
-	int		pos;
-
-	env_new = *penv;
-	while (env_new[++i])
+	while (env)
 	{
-		pos = env_var(env_new, var, i - 1, ft_strlen(var));
-		if (pos == -1)
-			return (-1);
-		else if (env_new[pos][ft_strlen(var)] == EQUAL)
-			return (pos);
-		else
+		matrix[i] = (char *)malloc(sizeof(char)
+				* (ft_strlen(env->front) + ft_strlen(env->back) + 2));
+		if (!matrix)
 		{
-			i += pos;
-			continue ;
+			free_matrix(matrix);
+			return (0);
 		}
+		ft_strcpy(matrix[i], env->front);
+		ft_strcat(matrix[i], "=");
+		ft_strcat(matrix[i++], env->back);
+		env = env->next;
 	}
-	return (-1);
+	matrix[i] = NULL;
+	return (1);
 }
 
-void	exec_unset(char ***penv, int pos, int i)
+char	**ft_env_to_matrix(t_data	*g_data)
 {
-	char	**env_new;
+	t_env	*env;
+	char	**matrix;
+	int		i;
 
-	env_new = *penv;
-	if (env_new[i + 1] == NULL)
-		return ;
-	while (i < pos)
-		i++;
-	if (i == pos)
-		free(env_new[i]);
-	while (env_new[i])
+	env = g_data->environmental;
+	i = 0;
+	while (env)
 	{
-		env_new[i] = env_new[i + 1];
 		i++;
+		env = env->next;
 	}
-	env_new[i] = NULL;
-	*penv = env_new;
+	matrix = malloc(sizeof(char *) * (i + 1));
+	if (!matrix)
+		return (NULL);
+	i = 0;
+	env = g_data->environmental;
+	if (!ft_ft(matrix, env, i))
+		return (NULL);
+	return (matrix);
 }
 
-static void	iterate_args(char **arr, t_minishell *minish, int *j)
+int	ft_unset(t_block *cmd, t_data	*g_data)
 {
-	int	pos;
 	int	i;
 
-	i = 0;
-	while (arr[*j][i] != NULL_TERM)
+	i = 1;
+	while (cmd->args[i])
 	{
-		if (!ft_isenv(arr[*j][i], &i))
+		if (ft_is_valid_env(cmd->args[i], g_data))
 		{
-			arg_err_msg("unset: `", arr[*j], "': not a valid identifier\n");
-			minish->exit_status = GENERIC_ERROR;
-			return ;
+			ft_delete_env(cmd->args[i], g_data);
 		}
 		i++;
 	}
-	if (arr[*j][0] == UNDSCORE && arr[*j][1] == NULL_TERM)
-		return ;
-	pos = env_search_pos(&(minish->env), arr[*j], -1);
-	if (pos == -1)
-		return ;
-	else
-		exec_unset(&(minish->env), pos, 0);
-	return ;
-}
-
-void	run_unset(char **arr, t_minishell *minish)
-{
-	int	j;
-	int	len;
-
-	j = -1;
-	len = ft_arrlen((void **)arr);
-	if (len > 0 && ft_strlen(arr[0]) > 1 && arr[0][0] == DASH)
-	{
-		arr[0][2] = NULL_TERM;
-		arg_err_msg("unset: `", arr[0], "': options are not supported\n");
-		minish->exit_status = CMD_ARG_ERROR;
-	}
-	else if (len > 0)
-	{
-		while (arr[++j])
-		{
-			if (ft_strcmp(arr[j], "OLDPWD") == 0)
-				minish->is_oldpwd_unset = true;
-			iterate_args(arr, minish, &j);
-		}
-	}
+	free_matrix(g_data->env);
+	g_data->env = ft_env_to_matrix(g_data);
+	if (!g_data->env)
+		ft_error('m', 0);
+	return (0);
 }
