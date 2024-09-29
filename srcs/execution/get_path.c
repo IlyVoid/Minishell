@@ -6,12 +6,16 @@
 /*   By: brsantsc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 10:02:15 by brsantsc          #+#    #+#             */
-/*   Updated: 2024/09/26 21:31:04 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 17:21:22 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Retrieves the value associated with a given key from 
+ * the environment variables. If the key is found, 
+ * it splits the value by ':' and returns it as an array of strings.
+ * Returns NULL if the key is not found. */
 static char	**ft_getenv(char **env, char *key)
 {
 	size_t	i;
@@ -28,6 +32,9 @@ static char	**ft_getenv(char **env, char *key)
 	return (NULL);
 }
 
+/* Joins a given path and file name into a single string.
+*  Allocates memory for the new string and returns it.
+*  The format will be "path/file". */
 static char	*join_path(char *path, char *file)
 {
 	char	*new;
@@ -54,6 +61,9 @@ static char	*join_path(char *path, char *file)
 	return (new);
 }
 
+/* Resolves the full path of a given file by searching through 
+ * the PATH environment variable.
+*  If the file is executable, returns its path; otherwise, returns NULL. */
 static char	*resolve_path(char *file, char **env)
 {
 	char	**paths;
@@ -83,6 +93,8 @@ static char	*resolve_path(char *file, char **env)
 	return (output);
 }
 
+/* Gets the resolved path for the command in the block.
+*  Stores the path in the provided pointer and handles errors. */
 int	ft_get_path(t_block *block, char **path, t_data	*g_data)
 {
 	*path = resolve_path(block->cmd_name, g_data->env);

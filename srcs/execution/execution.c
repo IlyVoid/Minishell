@@ -6,12 +6,14 @@
 /*   By: brsantsc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 09:43:40 by brsantsc          #+#    #+#             */
-/*   Updated: 2024/09/26 21:29:43 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 17:05:29 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Checks if the provided command string matches any built-in commands.
+*  Returns 1 if the command is built-in, 0 otherwise. */
 static int	ft_is_built_in(char *str)
 {
 	if (ft_strcmp(str, "echo") == 0)
@@ -31,6 +33,8 @@ static int	ft_is_built_in(char *str)
 	return (0);
 }
 
+/* Duplicates the file descriptors for input and output redirection.
+*  Closes the original file descriptors after duplication. */
 static void	ft_dup_fds(t_block *block, t_data *g_data)
 {
 	int	i;
@@ -54,6 +58,8 @@ static void	ft_dup_fds(t_block *block, t_data *g_data)
 	}
 }
 
+/* Executes the built-in commands by redirecting input and output as needed.
+*  Updates the global exit status in the g_data structure. */
 static void	ft_execute_builtin(t_block *block, int tmp_in, int tmp_out,
 		t_data *g_data)
 {
@@ -83,6 +89,8 @@ static void	ft_execute_builtin(t_block *block, int tmp_in, int tmp_out,
 	close(tmp_out);
 }
 
+/* Handles built-in commands, executing them in a child process if necessary.
+*  Manages file descriptor duplication and process creation for built-ins. */
 static int	ft_handle_builtin(t_block *block, t_data *g_data)
 {
 	int	pid;
@@ -110,6 +118,8 @@ static int	ft_handle_builtin(t_block *block, t_data *g_data)
 	return (1);
 }
 
+/* Executes a command by checking if it is built-in or an external command.
+*  Handles process creation and file descriptor management for both types. */
 int	exec_ft(t_block *block, int indx, t_data *g_data)
 {
 	char	*path;

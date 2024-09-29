@@ -6,12 +6,15 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 16:14:14 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/26 22:37:28 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 17:07:45 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Allocates memory for a new environment variable node and 
+ * initializes its fields.
+ * Returns a pointer to the newly created node. */
 t_env	*ft_new_list(void)
 {
 	t_env	*new;
@@ -23,6 +26,8 @@ t_env	*ft_new_list(void)
 	return (new);
 }
 
+/* Finds the index of the equal sign in the given string.
+*  Returns the index of '=' or -1 if not found. */
 int	ft_index_of_equal_sign(char *str)
 {
 	int	counter;
@@ -37,6 +42,8 @@ int	ft_index_of_equal_sign(char *str)
 	return (-1);
 }
 
+/* Adds a new environment variable node to the end of the linked list.
+*  If the list is empty, the new node becomes the head. */
 void	ft_add_tail(t_env *new_n, t_env **head)
 {
 	t_env	*temp;
@@ -54,6 +61,9 @@ void	ft_add_tail(t_env *new_n, t_env **head)
 	}
 }
 
+/* Fills the environment variable list from the provided array of 
+ * environment strings. Parses each string to extract the variable name 
+ * and value, then adds them to the list. */
 void	ft_fill_env(char **env, t_data	*g_data)
 {
 	t_env	*temp;
