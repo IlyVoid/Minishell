@@ -6,11 +6,16 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 17:21:25 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/26 21:48:14 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 13:06:55 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
+
+/* Manages the input/output file descriptors for the current command block 
+ * depending on its position within a series of piped commands. 
+ * It sets the appropriate input and output files based on the index 
+ * of the command and the total number of commands. */
 
 static int	handle_pipe(t_block *block, int idx, t_data *g_data)
 {
@@ -34,6 +39,11 @@ static int	handle_pipe(t_block *block, int idx, t_data *g_data)
 	}
 	return (1);
 }
+
+/* Handles redirection (input/output) based on the command's 
+ * redirection symbols (>, >>, <, <<). 
+ * It opens the appropriate files for reading or writing, 
+ * checks for errors, and updates the block's infile or outfile. */
 
 int	handle_redir(t_block *block, t_expand **exp, t_data *g_data)
 {
@@ -61,6 +71,11 @@ int	handle_redir(t_block *block, t_expand **exp, t_data *g_data)
 	return (1);
 }
 
+/* Processes a command block by detecting pipes and handling command names 
+ * or redirections. It assigns command arguments, processes any redirections, 
+ * and prepares the block for execution, while also setting up pipes
+ * as necessary. */
+
 int	ft_get_block(t_expand **exp, t_block *cmd_blocks, int indx, t_data *g_data)
 {
 	while (*exp && !ft_is_pipe((*exp)->str))
@@ -87,6 +102,11 @@ int	ft_get_block(t_expand **exp, t_block *cmd_blocks, int indx, t_data *g_data)
 	return (1);
 }
 
+/* Initializes the pipes required for inter-process communication. 
+ * It allocates memory for the pipes and creates them. 
+ * The number of pipes is determined by the number of commands 
+ * that will be connected via piping. */
+
 static int	init_pipe(int cnt, t_data *g_data)
 {
 	int	**pipefd;
@@ -112,6 +132,11 @@ static int	init_pipe(int cnt, t_data *g_data)
 	g_data->fd_pipe = pipefd;
 	return (0);
 }
+
+/* Fills out the structure for each command block in a sequence 
+ * of piped commands. It counts the number of pipes, initializes pipes, 
+ * processes each command block, executes it, and frees the resources. 
+ * This is the core function that manages command parsing and execution. */
 
 int	ft_fill_block(t_expand *exp, t_data *g_data)
 {

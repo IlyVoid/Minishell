@@ -6,26 +6,31 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 20:49:17 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/26 22:14:58 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 13:11:34 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Global variable used to track signal interrupts */
 int	g_sin;
 
+/* Writes a line of text to the specified file descriptor (fd).
+ * Appends a newline character after writing the line. */
 static void	write_to_file(char *line, int fd)
 {
 	write(fd, line, ft_strlen(line));
 	write(fd, "\n", 1);
 }
 
+/* Signal handler for heredoc, sets g_sin to -3 on SIGINT. */
 static void	sig_heredoc(int sig)
 {
 	(void)sig;
 	g_sin = -3;
 }
 
+/* Sets up a signal handler for SIGINT and exits if g_sin is -3. */
 static void	ft_signl(void)
 {
 	signal(SIGINT, sig_heredoc);
@@ -33,6 +38,10 @@ static void	ft_signl(void)
 		exit(1);
 }
 
+/* Reads lines for the heredoc input, 
+ * writing each line to the provided file descriptor.
+ * Terminates when the line matches the delimiter. 
+ * Handles signals during input.*/
 void	ft_get_heredoc_lines(char *delim, int fd, t_data *g_data)
 {
 	char	*line;
@@ -61,6 +70,10 @@ void	ft_get_heredoc_lines(char *delim, int fd, t_data *g_data)
 	close(fd);
 }
 
+/* Handles creating a heredoc file input for a block.
+ * Uses fork to handle the child process that reads heredoc input 
+ * and writes it to a pipe.
+ * The parent process waits for the child to finish. */
 void	handle_heredoc_file(t_block *block, char *delim, t_data *g_data)
 {
 	int	pid;

@@ -6,12 +6,15 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/20 16:57:26 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/26 21:28:13 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 13:33:48 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Retrieves the current working directory and prints it to the stdout.
+*  If an error occurs while getting the directory, it prints an error message.
+*  Returns 0 on success, or -1 on failure. */
 int	ft_pwd(void)
 {
 	char	*path;

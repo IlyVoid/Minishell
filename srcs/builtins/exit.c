@@ -6,12 +6,15 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 14:37:22 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/26 22:19:54 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 13:30:47 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Handles the case where an argument is provided to `exit`.
+*  If the arg is not numeric, it prints an error and exits with status 255.
+*  else, it converts the argument to an integer and exits with that status. */
 static void	ft_exit_ut(t_block *cmd)
 {
 	int	j;
@@ -34,6 +37,13 @@ static void	ft_exit_ut(t_block *cmd)
 	}
 }
 
+/* Main `exit` function for the shell.
+*  Frees all necessary resources, such as environment variables, pipes, 
+*  and command blocks.
+*  If no argument is provided, it exits with status 0.
+*  If one argument is provided, it calls `ft_exit_ut` to handle the exit code.
+*  If more than one argument is provided, 
+*  it prints an error message for too many arguments. */
 int	ft_exit_b(t_block *cmd, t_data	*g_data)
 {
 	int	i;

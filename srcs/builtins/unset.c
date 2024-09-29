@@ -6,12 +6,15 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 15:25:23 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/26 22:26:20 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 13:35:03 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Fills a matrix with environment variables from the linked list.
+*  Allocs memo for each variable and populates it with the format "key=value".
+*  Returns 1 on success, or 0 on failure (if memory allocation fails). */
 static char	ft_ft(char **matrix, t_env *env, int i)
 {
 	while (env)
@@ -32,6 +35,9 @@ static char	ft_ft(char **matrix, t_env *env, int i)
 	return (1);
 }
 
+/* Converts the linked list of environment variables into a matrix of strings.
+*  Allocates memory for the matrix based on the number of environment variables.
+*  Returns a pointer to the matrix, or NULL if memory allocation fails. */
 char	**ft_env_to_matrix(t_data	*g_data)
 {
 	t_env	*env;
@@ -55,6 +61,9 @@ char	**ft_env_to_matrix(t_data	*g_data)
 	return (matrix);
 }
 
+/* Unsets environment variables specified in the command block.
+*  Iterates over the arguments and deletes valid environment variables.
+*  Updates the environment matrix after deletion. Returns 0 on success. */
 int	ft_unset(t_block *cmd, t_data	*g_data)
 {
 	int	i;

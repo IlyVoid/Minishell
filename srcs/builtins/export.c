@@ -6,12 +6,15 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 11:47:35 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/26 22:22:14 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 13:32:29 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Sorts the environment variables alphabetically.
+*  It compares each string and swaps them if necessary.
+*  Returns the sorted environment variable array. */
 static char	**ft_sort_env(char **tmp_env)
 {
 	int		i;
@@ -37,6 +40,8 @@ static char	**ft_sort_env(char **tmp_env)
 	return (tmp_env);
 }
 
+/* Returns the size of a given matrix (2D array of strings).
+*  It counts the number of non-null entries in the array. */
 static int	ft_matrix_size(char **str)
 {
 	int	i;
@@ -47,6 +52,8 @@ static int	ft_matrix_size(char **str)
 	return (i);
 }
 
+/* Copies the current environment variables from `g_data` into a new array.
+*  Allocates memory for the new array and duplicates each string. */
 static char	**ft_copy_env(t_data *g_data)
 {
 	char	**env;
@@ -64,6 +71,9 @@ static char	**ft_copy_env(t_data *g_data)
 	return (new);
 }
 
+/* Handles the `export` command without arguments.
+*  It prints all environment variables sorted and prefixed with "declare -x".
+*  This is used when the user runs `export` with no additional arguments. */
 static void	ft_only_export(t_data *g_data)
 {
 	char	**tmp;
@@ -83,6 +93,10 @@ static void	ft_only_export(t_data *g_data)
 	free_matrix(tmp);
 }
 
+/* Handles the `export` command with arguments.
+*  It adds or modifies environment variables based on the input.
+*  If no arguments are given, it calls `ft_only_export` 
+*  to print all environment variables. */
 int	ft_export(t_block *cmd, t_data	*g_data)
 {
 	char	**splitted_input;

@@ -6,12 +6,15 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/22 16:25:03 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/26 22:16:18 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 13:15:31 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Retrieves the value of an environment variable by its name str from g_data.
+*  Returns the value (back) associated with the environment variable (front).
+*  If the variable is not found, returns NULL. */
 static char	*ft_getenv(char *str, t_data	*g_data)
 {
 	t_env	*env;
@@ -28,6 +31,10 @@ static char	*ft_getenv(char *str, t_data	*g_data)
 	return (NULL);
 }
 
+/* Determines the path for the `cd` command.
+*  If no path is provided or if the argument is `~`, 
+*  it retrieves the HOME directory from the environment.
+*  Returns 0 if no valid path is found, otherwise returns 1. */
 static int	get_cd_path(t_block *cmd, char **path, t_data *g_data)
 {
 	if (cmd->args[1] == NULL || ft_strcmp(cmd->args[1], "~") == 0)
@@ -41,6 +48,11 @@ static int	get_cd_path(t_block *cmd, char **path, t_data *g_data)
 	return (1);
 }
 
+/* Implements the `cd` command.
+*  Handles the case where too many arguments are provided, 
+*  retrieves the correct path, and attempts to change to the given directory.
+*  If changing directory fails, it prints an error message and returns 1; 
+*  otherwise returns 0 on success. */
 int	ft_cd(t_block *cmd, t_data *g_data)
 {
 	char	*path;
