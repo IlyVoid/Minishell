@@ -6,12 +6,14 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:45:01 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/26 21:55:17 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 19:48:04 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Calculates the length of the string after removing the
+   quotes. Handles both single and double quotes. */
 static int	ft_get_trim_len(char *str, char *quote, int i, int len)
 {
 	while (str[i] != '\0')
@@ -37,6 +39,8 @@ static int	ft_get_trim_len(char *str, char *quote, int i, int len)
 	return (len);
 }
 
+/* Removes quotes from a given string while preserving the
+   characters inside the quotes. */
 char	*ft_trim_quotes(char *str, int i, int len)
 {
 	char	quote;

@@ -6,12 +6,15 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 21:59:52 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/26 22:00:33 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 19:51:52 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Deletes an environment variable by name (str) 
+   from the linked list in g_data. Frees the node 
+   and updates the environment matrix. */
 void	ft_delete_env(char *str, t_data	*g_data)
 {
 	t_env	*env;
@@ -37,6 +40,9 @@ void	ft_delete_env(char *str, t_data	*g_data)
 	g_data->env = ft_env_to_matrix(g_data);
 }
 
+/* Creates a new environment variable from str 
+   and adds it to the environmental list in g_data. 
+   Returns a pointer to the new node. */
 t_env	*ft_new_env(char *str, t_data	*g_data)
 {
 	t_env	*env;
@@ -58,6 +64,9 @@ t_env	*ft_new_env(char *str, t_data	*g_data)
 	return (new);
 }
 
+/* Checks if an environment variable exists in g_data 
+   by comparing the front part of each node. Returns 
+   1 if it exists, otherwise 0. */
 int	ft_is_valid_env(char *str, t_data	*g_data)
 {
 	t_env	*env;
@@ -74,6 +83,9 @@ int	ft_is_valid_env(char *str, t_data	*g_data)
 	return (0);
 }
 
+/* Changes the value of an existing environment variable 
+   by freeing the old value (back) and replacing it with 
+   new_value. */
 void	ft_change_env(char *str, char *new_value, t_data	*g_data)
 {
 	t_env	*env;

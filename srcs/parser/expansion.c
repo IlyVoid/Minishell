@@ -6,12 +6,14 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 10:44:57 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/26 22:33:04 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 18:18:19 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Trims the line until a special character
+   is encountered and returns the substring. */
 static char	*trim_env(char *line, int *k)
 {
 	int		j;
@@ -36,6 +38,7 @@ static char	*trim_env(char *line, int *k)
 	return (env);
 }
 
+/* Retrieves environment variable value from a substring. */
 static char	*ft_get_env(char *substr, int *indx, t_data *g_data)
 {
 	char	*env;
@@ -54,6 +57,7 @@ static char	*ft_get_env(char *substr, int *indx, t_data *g_data)
 	return (env);
 }
 
+/* Finds the total length of the line after expanding env variables. */
 static int	find_len(char *line, t_data *g_data)
 {
 	int		i;
@@ -81,6 +85,7 @@ static int	find_len(char *line, t_data *g_data)
 	return (len);
 }
 
+/* Copies the line and expands any env variables found. */
 static char	*ft_copier(char *line, int j, int k, t_data *g_data)
 {
 	int		len;
@@ -110,6 +115,7 @@ static char	*ft_copier(char *line, int j, int k, t_data *g_data)
 	return (str);
 }
 
+/* Expands all env variables found in the given lines. */
 t_expand	*ft_expander(char **line, int i, int j, t_data *g_data)
 {
 	t_expand	*exp;

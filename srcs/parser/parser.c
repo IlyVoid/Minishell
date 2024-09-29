@@ -6,12 +6,14 @@
 /*   By: brsantsc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 09:49:07 by brsantsc          #+#    #+#             */
-/*   Updated: 2024/09/26 21:54:12 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 18:20:34 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Counts the number of words in a string, accounting
+   for quotes and delimiters. */
 static int	ft_words_nbr(char *str, int idx, int length)
 {
 	char	quote;
@@ -40,6 +42,7 @@ static int	ft_words_nbr(char *str, int idx, int length)
 	return (length);
 }
 
+/* Extracts a word wrapped in quotes from the string. */
 static char	*ft_get_word_quote(char *str, char quote)
 {
 	int		idx;
@@ -67,6 +70,8 @@ static char	*ft_get_word_quote(char *str, char quote)
 	return (word);
 }
 
+/* Extracts a word from the string while checking for
+   quotes and handling them accordingly. */
 static char	*ft_get_word(char *str, int a, int idx, char is_quote)
 {
 	char	*word;
@@ -96,6 +101,8 @@ static char	*ft_get_word(char *str, int a, int idx, char is_quote)
 	return (word);
 }
 
+/* Parses and returns the next word, handling quoted and
+   unquoted words separately. */
 char	*patse_with_type(char *str, char **split, int idx)
 {
 	char	*ret;
@@ -117,6 +124,8 @@ char	*patse_with_type(char *str, char **split, int idx)
 	return (str);
 }
 
+/* Parses the input string and splits it into words based
+   on delimiters and quotes. */
 char	**ft_parser(char *str, int idx)
 {
 	char	**split;

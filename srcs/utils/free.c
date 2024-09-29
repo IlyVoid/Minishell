@@ -6,12 +6,15 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 01:50:28 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/26 22:54:08 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 19:57:23 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Frees allocated memory for an array of pipe file descriptors.
+   Closes each pipe and frees each inner array, then frees the 
+   outer array itself. */
 void	free_pipes(int **pipefd, int cnt)
 {
 	int	i;
@@ -32,12 +35,15 @@ void	free_pipes(int **pipefd, int cnt)
 	free(pipefd);
 }
 
+/* Frees the memory allocated for a single string. */
 void	free_string(char *str)
 {
 	if (str)
 		free(str);
 }
 
+/* Frees an array of strings, deallocating each string
+   individually before freeing the array itself. */
 void	free_matrix(char **str)
 {
 	int	i;
@@ -51,6 +57,8 @@ void	free_matrix(char **str)
 	str = NULL;
 }
 
+/* Frees memory for a t_block structure, including its 
+   command name and arguments. */
 void	free_blocks(t_block *blocks)
 {
 	if (!blocks)
@@ -60,6 +68,8 @@ void	free_blocks(t_block *blocks)
 	free(blocks);
 }
 
+/* Frees a linked list of t_expand structures, deallocating 
+   the string and the structure for each node. */
 void	free_exp(t_expand *exp)
 {
 	t_expand	*tmp;

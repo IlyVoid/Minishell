@@ -6,12 +6,16 @@
 /*   By: brsantsc <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 09:28:37 by brsantsc          #+#    #+#             */
-/*   Updated: 2024/09/26 23:15:38 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 17:38:39 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Creates and returns a prompt string for the shell.
+ * The prompt consists of a green checkmark and 
+ * the current working directory's last segment.
+ * The format is: "✓ [last directory] $ ". */
 char	*ft_prompt(void)
 {
 	char	*prompt;
@@ -33,6 +37,10 @@ char	*ft_prompt(void)
 	return (prompt);
 }
 
+/* Parses input and executes commands.
+ * It checks for control characters, quotes, and processes the input.
+ * input: The command line input from the user.
+ * g_data: Global data structure containing shell state and environment. */
 void	set_and_execute(char *input, t_data	*g_data)
 {
 	int			ret;
@@ -62,6 +70,9 @@ void	set_and_execute(char *input, t_data	*g_data)
 	ft_ft_ft(g_data);
 }
 
+/* Main loop for the shell process.
+ * Continuously prompts the user for input and processes it.
+ * g_data: Global data structure containing shell state and environment. */
 void	ft_start_proccess(t_data	*g_data)
 {
 	char	*input;
@@ -87,6 +98,11 @@ void	ft_start_proccess(t_data	*g_data)
 	}
 }
 
+/* Copies a matrix of strings.
+ * Allocates memory for a new matrix and 
+ * duplicates the strings from the original matrix.
+ * matrix: The original matrix to copy.
+ * Returns: A new matrix with duplicated strings, or NULL on failure. */
 char	**ft_copy_matrix(char **matrix)
 {
 	int		i;
@@ -110,6 +126,12 @@ char	**ft_copy_matrix(char **matrix)
 	return (new_matrix);
 }
 
+/* The main entry point for the shell program.
+ * Initializes global data and starts the shell process.
+ * argc: Argument count (should be 1).
+ * argv: Argument vector (not used).
+ * env: Environment variables passed to the program.
+ * Returns: 0 on success, -1 on failure. */
 int	main(int argc, char **argv, char **env)
 {
 	t_data	*g_data;

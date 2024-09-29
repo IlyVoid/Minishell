@@ -6,12 +6,15 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 20:54:07 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/26 23:02:12 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 19:50:06 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Counts the number of arguments in the expanded list
+   until it hits a pipe or end of the list, ignoring 
+   redirection symbols. */
 int	ft_arg_size(t_expand *exp)
 {
 	int	i;
@@ -30,6 +33,9 @@ int	ft_arg_size(t_expand *exp)
 	return (i);
 }
 
+/* Allocates and fills an argument array with the strings 
+   from the expanded list, handling redirection symbols 
+   and trimming quotes. */
 char	**ft_fill_args(t_expand **exp, t_block *block, int arg_cnt,
 		t_data *g_data)
 {
@@ -57,6 +63,8 @@ char	**ft_fill_args(t_expand **exp, t_block *block, int arg_cnt,
 	return (args);
 }
 
+/* Counts the number of pipes in the expanded list. 
+   Returns -1 if consecutive pipes are found. */
 int	ft_count_pipe(t_expand *exp)
 {
 	int	cnt;
@@ -75,6 +83,8 @@ int	ft_count_pipe(t_expand *exp)
 	return (cnt);
 }
 
+/* Checks if the string is a redirection symbol 
+   ('<' or '>'). Returns 1 if true, 0 otherwise. */
 int	ft_is_redir(char *str)
 {
 	if (!str)
@@ -84,6 +94,8 @@ int	ft_is_redir(char *str)
 	return (0);
 }
 
+/* Checks if the string is a pipe symbol ('|'). 
+   Returns 1 if true, 0 otherwise. */
 int	ft_is_pipe(char *str)
 {
 	if (!str)

@@ -6,12 +6,15 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 20:29:16 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/26 21:55:59 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 19:50:37 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Handles redirection errors by printing an error message
+   and cleaning up allocated memory related to the block 
+   and filename, if applicable. */
 void	ft_redir_error(t_block *block, char *str, char *filename)
 {
 	ft_putstr_fd("minishell: ", 2);

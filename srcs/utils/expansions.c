@@ -6,12 +6,15 @@
 /*   By: quvan-de <quvan-de@student.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 11:09:25 by quvan-de          #+#    #+#             */
-/*   Updated: 2024/09/26 22:36:14 by quvan-de         ###   ########.fr       */
+/*   Updated: 2024/09/29 19:56:04 by quvan-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
+/* Adds a new node with the given string at the 
+   end of the linked list of t_expand structs and 
+   returns the head of the list. */
 t_expand	*ft_add_tail_expander(t_expand *head, char *str)
 {
 	t_expand	*temp;
@@ -36,6 +39,8 @@ t_expand	*ft_add_tail_expander(t_expand *head, char *str)
 	return (head);
 }
 
+/* Searches for an environment variable in the linked 
+   list of t_env structs, and returns its value if found. */
 char	*ft_search_env(char *splitted_input, t_data *g_data)
 {
 	char	*str;
@@ -59,11 +64,17 @@ char	*ft_search_env(char *splitted_input, t_data *g_data)
 	return (str);
 }
 
+/* Checks if the given character is a dollar sign followed 
+   by an alphanumeric character or a question mark, indicating 
+   a valid variable reference. */
 int	i_x(char c, char x)
 {
 	return ((c == '$' && (ft_isalnum(x) || x == '?')));
 }
 
+/* Determines whether a character at a specified index in 
+   a string is inside single quotes by counting quote 
+   occurrences up to that index. */
 int	is_in_single_quote(char *str, int indx)
 {
 	int	i;
