@@ -63,31 +63,6 @@ minishell/
 ├── README.md        # Project documentation
 └── ...
 
-🤝 Contributing
-
-Contributions are welcome! To contribute:
-
-    Fork the repository
-    Create a new branch: git checkout -b feature/YourFeature
-    Make your changes
-    Commit your changes: git commit -m "Add some feature"
-    Push to the branch: git push origin feature/YourFeature
-    Open a Pull Request
-
-Guidelines:
-
-    Keep commit messages clear and concise.
-    Follow the coding standards.
-    Include tests for new features or bug fixes.
-
-📜 License
-
-This project is licensed under the MIT License. See the LICENSE file for details.
-🙌 Acknowledgments
-
-    Inspired by the desire to learn and explore shell functionalities.
-    Thanks to the community and contributors for their support!
-
 📫 Contact
 
 Have questions or feedback? Feel free to reach out:
